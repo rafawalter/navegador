@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app="financiamentoApp">
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="finalidade.js"></script>
+    <link rel="stylesheet" href="todo.css">
+  </head>
+  <body>
+    <h2>Filtrar por finalidades</h2>
+    <div ng-controller="finalidadeListController as finalidadeList">
+      <ul class="unstyled">
+        <li ng-repeat="finalidade in finalidadeList.finalidades">
+          <label class="radioButton">
+            <input type="radio" name="finalidade" value="{{finalidade.text}}" ng-model="$parent.selected">
+            <span class="selected-{{isSelected}}">{{finalidade.text}}</span>
+          </label>
+        </li>
+      </ul>
+	  <br>
+	  <span>Finalidade selecionada: {{selected}}</span>
+    </div>
+  </body>
+</html>
