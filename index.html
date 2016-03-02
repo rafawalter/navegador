@@ -1,24 +1,88 @@
 <!doctype html>
-<html ng-app="financiamentoApp">
+<html ng-app="navegadorApp" >
   <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-    <script src="finalidade.js"></script>
-    <link rel="stylesheet" href="todo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Navegador</title>
+
+    <link rel="stylesheet" href="lib/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
+
+    <script src="lib/angular-1.5.0/angular.min.js"></script>
+    <script src="lib/angular-1.5.0/angular-route.min.js"></script>
+
+
+    <link rel="stylesheet" href="navegador.css">
+
+    <script src="navegador.js"></script>
   </head>
-  <body>
-    <h2>Filtrar por finalidades</h2>
-    <div ng-controller="finalidadeListController as finalidadeList">
-      <ul class="unstyled">
-        <li ng-repeat="finalidade in finalidadeList.finalidades">
-          <label class="radioButton">
-            <input type="radio" name="finalidade" value="{{finalidade.text}}" ng-model="$parent.selected">
-            <span class="selected-{{isSelected}}">{{finalidade.text}}</span>
-          </label>
-        </li>
-      </ul>
-	  <br>
-	  <span>Finalidade selecionada: {{selected}}</span>
-    </div>
+
+  <body ng-controller="NavegadorController">
+  	<div class='container'>
+  		<h1>Navegador</h1>
+
+	  	<div id='mpme'>
+		    <h2>MPME</h2>
+		    <input type="checkbox" value="{{somenteMpme}}" />Melhores opções para Micro, Pequenas e Médias Empresas (faturamento até R$90 milhões)    
+	  	</div>
+		<span>Somente MPME? {{somenteMpme}}</span>
+
+	  	<div id="setores">
+	    	<h2>Setores</h2>
+	    	<div>
+				<div>
+				  <ul class="unstyled">
+					<li ng-repeat="setor in setores">
+					  <label class="radioButton">
+						<input type="radio" name="setor" value="{{setor.nome}}" ng-model="$parent.setorSelecionado">
+						<span>{{setor.nome}}</span>
+					  </label>
+					</li>
+				  </ul>
+				  <span>Setor selecionado: {{setorSelecionado}}</span>
+				</div>
+				<br>
+			</div>  	
+	  	</div>
+
+	  	<div id="finalidades">
+		    <h2>Finalidades</h2>
+		    <div>
+				<div>
+				  <ul class="unstyled">
+					<li ng-repeat="finalidade in finalidades">
+					  <label class="radioButton">
+						<input type="radio" name="finalidade" value="{{finalidade.nome}}" ng-model="$parent.finalidadeSelecionada">
+						<span>{{finalidade.nome}}</span>
+					  </label>
+					</li>
+				  </ul>
+				  <span>Finalidade selecionada: {{finalidadeSelecionada}}</span>
+				</div>
+				<br>
+			</div>  		
+	  	</div>
+
+	  	<div id="resultados">
+	  		<h2>Resultados</h2>
+			<table>
+				<tr>
+					<td>Informações básicas</td>
+					<td>Condições Financeiras</td>
+					<td>Linha/ Programa</td>
+					<td>Finalidade</td>
+				</tr>
+				<tr ng-repeat="resultado in resultados">
+					<td>{{resultado.infoBasicas}}</td>
+					<td>{{resultado.condicoesFin}}</td>
+					<td>{{resultado.linhasProg}}</td>
+					<td>{{finalidadeSelected}}</td>
+				</tr>
+			</table>  		
+	  	</div>
+
+   	</div>
   </body>
 </html>
