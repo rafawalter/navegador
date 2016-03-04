@@ -1,16 +1,7 @@
 angular.module('navegadorApp')
-  .controller('NavegadorController', function($scope) {
+  .controller('NavegadorController', function($scope, recursoSetores) {
 
-	$scope.setores = [
-      	{nome:'Todos'},
-      	{nome:'Administração pública'},
-		{nome:'Agropecuária'},
-		{nome:'Comércio e serviços'},
-		{nome:'Cultura'},
-		{nome:'Indústria'},
-		{nome:'Infraestrutura'},
-		{nome:'Saúde'},
-	  ];
+	$scope.setores = recursoSetores.obter();
 
 	$scope.finalidades = [
       {nome:'Todas'},

@@ -17,4 +17,21 @@ angular.module("meusUtilitarios", [])
 		};
 
 		return servico;
+  }).factory('recursoSetores', function() {
+    var servico = {};
+
+    servico.obter = function() {
+      return [
+        {nome:'Todos'},
+        {nome:'Administração pública'},
+        {nome:'Agropecuária'},
+        {nome:'Comércio e serviços'},
+        {nome:'Cultura'},
+        {nome:'Indústria'},
+        {nome:'Infraestrutura'},
+        {nome:'Saúde'},
+      ];
+    }
+
+    return servico;
   });
