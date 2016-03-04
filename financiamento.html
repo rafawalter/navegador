@@ -20,12 +20,18 @@
 
   <body ng-controller="FinanciamentoController">
   	<div class='container'>
-	    <h1>{{financiamento.linhasProg}}</h1>
-      <div>{{financiamento.infoBasicas}}</div>
-      <div>{{financiamento.condicoesFin}}</div>
-      <div ng-repeat="setor in financiamento.setores">{{setor}}, </div>
-      <div ng-repeat="finalidade in financiamento.finalidades">{{finalidade}}, </div>
-      <div>{{financiamento.mpme}}</div>
+      <div id='mensagem' class='alert-danger'>
+        {{mensagem}}
+      </div>
+
+      <div id='financiamento'>
+  	    <h1>{{financiamento.linhasProg}}</h1>
+        <div>{{financiamento.infoBasicas}}</div>
+        <div>{{financiamento.condicoesFin}}</div>
+        <div ng-repeat="setor in financiamento.setores">{{setor}}, </div>
+        <div ng-repeat="finalidade in financiamento.finalidades">{{finalidade}}, </div>
+        <div>{{financiamento.mpme}}</div>
+      </div>
    	</div>
   </body>
 </html>
