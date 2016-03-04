@@ -1,4 +1,4 @@
-angular.module('navegadorApp', [])
+angular.module('navegadorApp')
   .controller('NavegadorController', function($scope) {
 
 	$scope.setores = [
