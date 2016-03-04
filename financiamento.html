@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="navegadorApp" >
+<html ng-app="financiamentoApp" >
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
@@ -14,16 +14,18 @@
     <script src="lib/angular-1.5.0/angular-route.min.js"></script>
 
     <link rel="stylesheet" href="css/navegador.css">
-	<script src="js/main.js"></script>
-    <script src="js/navegador-controller.js"></script>
+    <script src="js/financiamento-controller.js"></script>
 
   </head>
 
-  <body ng-controller="NavegadorController">
+  <body ng-controller="FinanciamentoController">
   	<div class='container'>
-		<ng-view>
-      <a href='navegador.html'></a>
-    </ng-view>
+	    <h1>{{financiamento.linhasProg}}</h1>
+      <div>{{financiamento.infoBasicas}}</div>
+      <div>{{financiamento.condicoesFin}}</div>
+      <div ng-repeat="setor in financiamento.setores">{{setor}}, </div>
+      <div ng-repeat="finalidade in financiamento.finalidades">{{finalidade}}, </div>
+      <div>{{financiamento.mpme}}</div>
    	</div>
   </body>
 </html>
