@@ -22,7 +22,6 @@ angular.module("meusUtilitarios", [])
 
     servico.obter = function() {
       return [
-        {nome:'Todos'},
         {nome:'Administração pública'},
         {nome:'Agropecuária'},
         {nome:'Comércio e serviços'},
@@ -39,7 +38,6 @@ angular.module("meusUtilitarios", [])
 
     servico.obter = function(){
       return  [
-        {nome:'Todas'},
         {nome:'Maquinas e equipamentos'},
         {nome:'Mercado de capitais'},
         {nome:'Meio ambiente'},

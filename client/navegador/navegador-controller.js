@@ -7,24 +7,31 @@ angular.module('navegadorApp')
 
   	$scope.filtro = {
   		somenteMpme: false,
+      filtrarSetores: false,
   		setor: 'Todos',
-  		finalidade: 'Todas'
+      filtrarFinalidades: false,
+  		finalidade: 'Todas',
   	};
 
     $scope.financiamentos = recursoFinanciamentos.obter();
 
   	$scope.financiamentosFiltrados = function() {
+      var filtro = $scope.filtro;
   		return $scope.financiamentos.filter( function( financiamento ) {
-  			if ($scope.filtro.somenteMpme && !financiamento.mpme) {
+  			if (filtro.somenteMpme && !financiamento.mpme) {
   				return false;
   			}
-  			if(($scope.filtro.setor) && ($scope.filtro.setor!= 'Todos') && (financiamento.setores.indexOf($scope.filtro.setor)== -1 )){
+  			if((filtro.filtrarSetores) && (filtro.setor) && (financiamento.setores.indexOf(filtro.setor)== -1 )){
   				return false;
   			}
-  			if(($scope.filtro.finalidade) && ($scope.filtro.finalidade!= 'Todas') && (financiamento.finalidades.indexOf($scope.filtro.finalidade)== -1 )){
+  			if((filtro.filtrarFinalidades) && (filtro.finalidade) && (filtro.finalidade!= 'Todas') && (financiamento.finalidades.indexOf(filtro.finalidade)== -1 )){
   				return false;
   			}
   			return true;
       });
 	   };
+
+     $scope.quantidadeDeFinanciamentosFiltrados = function() {
+       return Object.keys(financiamentosFiltrados()).length;
+     };
   });
