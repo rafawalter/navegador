@@ -7,16 +7,16 @@
 
     <title>Navegador</title>
 
-    <link rel="stylesheet" href="lib/bootstrap-3.3.6-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="lib/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="js/lib/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/lib/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
 
-    <script src="lib/angular-1.5.0/angular.min.js"></script>
-    <script src="lib/angular-1.5.0/angular-route.min.js"></script>
+    <script src="js/lib/angular-1.5.0/angular.min.js"></script>
+    <script src="js/lib/angular-1.5.0/angular-route.min.js"></script>
 
-    <link rel="stylesheet" href="css/navegador.css">
-    <script src="js/main.js"></script>
-    <script src="js/navegador-controller.js"></script>
-    <script src="js/services/meus-utilitarios.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+	   <script src="js/main.js"></script>
+    <script src="navegador/navegador-controller.js"></script>
+    <script src="services/meus-utilitarios.js"></script>
   </head>
 
   <body ng-controller="NavegadorController">
@@ -87,9 +87,13 @@
 
 						<tr ng-repeat="financiamento in financiamentosFiltrados()">
 
-            		<td><a href='financiamento.html?id={{financiamento.id}}'>{{financiamento.infoBasicas}} </a></td>
+            		<td>{{financiamento.infoBasicas}}</td>
   							<td>{{financiamento.condicoesFin}}</td>
-  							<td>{{financiamento.linhasProg}}</td>
+  							<td>
+                  <a href='financiamento.html?id={{financiamento.id}}'>
+                    {{financiamento.linhasProg}}
+                  </a>
+                </td>
   							<td>{{financiamento.mpme}}</td>
   							<td><span ng-repeat="setor in financiamento.setores">{{setor}}, </span></td>
   							<td><span ng-repeat="finalidade in financiamento.finalidades">{{finalidade}}, </span></td>

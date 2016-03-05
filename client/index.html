@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="navegadorApp" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Navegador</title>
+
+    <link rel="stylesheet" href="js/lib/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/lib/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="js/lib/angular-1.5.0/angular.min.js"></script>
+    <script src="js/lib/angular-1.5.0/angular-route.min.js"></script>
+
+	   <script src="js/main.js"></script>
+    <script src="navegador/navegador-controller.js"></script>
+    <script src="services/meus-utilitarios.js"></script>
+
+  </head>
+
+  <body ng-controller="NavegadorController">
+  	<div class='container'>
+		<ng-view>
+      <h1>Visite o <a href='navegador.html'>Navegador</a></h1>
+    </ng-view>
+   	</div>
+  </body>
+</html>

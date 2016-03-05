@@ -8,7 +8,6 @@ angular.module('navegadorApp')
 
     function obterId() {
         var parametrosDaUrl = util.obterParametrosDaUrl();
-        console.log(parametrosDaUrl);
         return parametrosDaUrl.id;
       //  var id = $location.search().id;
     };
@@ -18,8 +17,6 @@ angular.module('navegadorApp')
       $scope.mensagem = 'informe o id na url';
       //$scope.mensagem = 'Não encontrei o financiamento ['+id+']'
     };
-    console.log(id);
-
 
 	  $scope.financiamento = $scope.financiamentos[id];
 	});
