@@ -17,22 +17,6 @@ angular.module("meusUtilitarios", [])
 		};
 
 		return servico;
-  }).factory('recursoSetores', function() {
-    var servico = {};
-
-    servico.obter = function() {
-      return [
-        {nome:'Administração pública'},
-        {nome:'Agropecuária'},
-        {nome:'Comércio e serviços'},
-        {nome:'Cultura'},
-        {nome:'Indústria'},
-        {nome:'Infraestrutura'},
-        {nome:'Saúde'},
-      ];
-    }
-
-    return servico;
   }).factory('recursoFinalidades', function(){
     var servico = {};
 
@@ -56,17 +40,6 @@ angular.module("meusUtilitarios", [])
     	  {nome:'Inclusão social e produtiva'},
     	  {nome:'Capitalização de cooperativa de crédito'},
     	];
-    }
-
-    return servico;
-  }).factory('recursoFinanciamentos', function(){
-    var servico = {};
-
-    servico.obter = function(){
-      return  [
-         {infoBasicas:'Apoio ao desenvolvimento, à modernização...', condicoesFin:'Juros a partir de TJLP + ...', linhasProg:'BNDES Cerealistas', setores:['Indústria'], finalidades:['Crédito rural'], mpme:false, id:0},
-   	  {infoBasicas:'Apoio aos setores da produção...', condicoesFin:'-Taxa de 8,75%...', linhasProg:'MODERAGRO', setores:['Agropecuária', 'Indústria'], finalidades:['Crédito rural','Exportação'], mpme:true, id:1},
-   	  ];
     }
 
     return servico;

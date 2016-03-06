@@ -1,0 +1,23 @@
+{
+  "name": "navegador",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "chimp": "^0.30.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "chimp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafawalter/navegador.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafawalter/navegador/issues"
+  },
+  "homepage": "https://github.com/rafawalter/navegador#readme",
+  "description": ""
+}
