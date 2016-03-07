@@ -60,8 +60,6 @@
           <input id='filtrarFinalidades' type="checkbox" ng-model="filtro.filtrarFinalidades"/>
           filtrar finalidades
         </label>
-      </div>
-      <div>
         <ul class="unstyled">
           <li ng-repeat="finalidade in finalidades">
             <label class="radioButton">
@@ -72,12 +70,10 @@
         </ul>
       </div>
       <br>
-    </div>
-  </div>
 
-  <div id="resultados">
-    <h2>Resultados</h2>
-    <!--
+      <div id="resultados">
+        <h2>Resultados</h2>
+        <!--
 			<div id='filtros'>
 				<h3>Filtro</h3>
 				<p>
@@ -89,48 +85,50 @@
 				</p>
 			</div>
 -->
-    <p>
-      <span id='contador-de-financiamentos'>
-        {{financiamentosFiltrados().length}}
-      </span> resultado(s)
-    </p>
-    <table class='table table-striped table-hover'>
-      <thead>
-        <tr>
-          <th>Informações básicas</th>
-          <th>Condições Financeiras</th>
-          <th>Linha/ Programa</th>
-          <th>MPME?</th>
-          <th>Setores</th>
-          <th>Finalidades</th>
-        </tr>
-      </thead>
-      <tbody class'financiamentos'>
+        <p>
+          <span id='contador-de-financiamentos'>
+            {{financiamentosFiltrados().length}}
+          </span>
+          resultado(s)
+        </p>
+        <table class='table table-striped table-hover'>
+          <thead>
+            <tr>
+              <th>Informações básicas</th>
+              <th>Condições Financeiras</th>
+              <th>Linha/ Programa</th>
+              <th>MPME?</th>
+              <th>Setores</th>
+              <th>Finalidades</th>
+            </tr>
+          </thead>
+          <tbody class'financiamentos'>
 
-        <tr class='financiamento' ng-repeat="financiamento in financiamentosFiltrados()">
+            <tr class='financiamento' ng-repeat="financiamento in financiamentosFiltrados()">
 
-          <td>{{financiamento.infoBasicas}}</td>
-          <td>{{financiamento.condicoesFin}}</td>
-          <td>
-            <a href='financiamento.html?id={{financiamento.id}}'>
-              {{financiamento.linhasProg}}
-            </a>
-          </td>
-          <td class='mpme'>{{financiamento.mpme}}</td>
-          <td class='setores'>
-              <span class='setor' ng-repeat="setor in financiamento.setores">
-                {{setor}}{{$last ? '' : ', '}}
-              </span>
-          </td>
-          <td>
-            <span ng-repeat="finalidade in financiamento.finalidades">
-              {{finalidade}}{{$last ? '' : ', '}}
-            </span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+              <td>{{financiamento.infoBasicas}}</td>
+              <td>{{financiamento.condicoesFin}}</td>
+              <td>
+                <a href='financiamento.html?id={{financiamento.id}}'>
+                  {{financiamento.linhasProg}}
+                </a>
+              </td>
+              <td class='mpme'>{{financiamento.mpme}}</td>
+              <td class='setores'>
+                <span class='setor' ng-repeat="setor in financiamento.setores">
+                  {{setor}}{{$last ? '' : ', '}}
+                </span>
+              </td>
+              <td>
+                <span ng-repeat="finalidade in financiamento.finalidades">
+                  {{finalidade}}{{$last ? '' : ', '}}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-</div>
 </body>
 </html>

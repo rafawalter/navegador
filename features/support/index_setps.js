@@ -8,8 +8,15 @@ module.exports = function() {
     expect(browser.getTitle()).toBe(titulo);
    });
 
-
    this.Given(/^vejo o filtro "([^"]*)"$/, function (texto) {
      expect(browser.isVisible('label*='+texto)).toBeTruthy();
    });
+
+   this.Given(/^vejo diversos setores$/, function () {
+     expect(browser.elements('#setores .setor').value.length).toBe(7);
+  });
+
+  this.Given(/^navego para o setor "([^"]*)"$/, function (nomeSetor) {
+    browser.click('a='+nomeSetor);
+  });
 }

@@ -5,7 +5,6 @@ Funcionalidade: Navegar pelos financiamentos
   Eu quero conhecer as formas de apoio financeiro
   Para que possa melhorar meu negócio
 
-  @watch
     Cenário: Todas as opções
       Dado que estou na pagina inicial
       Quando clico no link "todas as opções de apoio financeiro"
@@ -13,3 +12,10 @@ Funcionalidade: Navegar pelos financiamentos
       E vejo o filtro "somente MPME"
       E vejo o filtro "filtrar setores"
       E vejo o filtro "filtrar finalidades"
+
+      @watch
+    Cenário: Navegação pelo setor
+      Dado que estou na pagina inicial
+      E vejo diversos setores
+      Quando navego para o setor "Agropecuária"
+      Então sou direcionado para a página "Navegador - Agrupecuária"
