@@ -22,3 +22,5 @@ http://webdriver.io/api.html - API
 Regex TDD tool
 https://regex101.com/
 
+Using an AngularJS Single Page Application as a Script Portlet
+https://developer.ibm.com/digexp/docs/docs/script-portlet/using-an-angularjs-single-page-application-as-a-script-portlet/
