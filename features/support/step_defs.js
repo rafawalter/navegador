@@ -3,21 +3,21 @@ module.exports = function() {
     browser.url('file:///Users/rafaelwalter/Documents/Projetos/navegador/client/navegador.html');
   });
 
-  this.Given('eu clico no link "$texto"', function(texto) {
+  this.Given('clico no link "$texto"', function(texto) {
     var locator = 'a=' + texto;
     browser.click(locator);
   });
 
-  this.Given('eu vejo a página "$titulo"', function(titulo) {
+  this.Given('vejo a página "$titulo"', function(titulo) {
     expect(browser.getText('h1')).toEqual(titulo);
   });
 
-  this.Given(/^vejo financiamentos que não são para MPME$/, function() {
+  this.Given(/^vejo financiamentos que são e outros que não são para MPME$/, function() {
     expect(browser.isVisible('.mpme=true')).toBeTruthy();
     expect(browser.isVisible('.mpme=false')).toBeTruthy();
   });
 
-  this.Given(/^eu clico no checkbox "([^"]*)"$/, function(texto) {
+  this.Given(/^clico (?:novamente )*no checkbox "([^"]*)"$/, function(texto) {
     browser.click('label='+texto);
   });
 
