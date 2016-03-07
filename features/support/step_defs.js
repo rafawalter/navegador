@@ -55,4 +55,11 @@ module.exports = function() {
   this.Given(/^vejo "filtrar setores" marcado$/, function() {
     expect(browser.isSelected('#filtrarSetores')).toBeTruthy();
   });
+
+  this.Given(/^o contador de resultados indica a quantidade correta$/, function () {
+    var contagemFinanciamentos = browser.elements('.financiamento').value.length;
+    var valorNoContador = Number(browser.getText('#contador-de-financiamentos'));
+    expect(contagemFinanciamentos).toBe(valorNoContador);
+  });
+
 };

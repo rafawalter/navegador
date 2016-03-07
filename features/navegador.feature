@@ -5,6 +5,13 @@ Funcionalidade: Navegar pelos financiamentos
   Eu quero conhecer as formas de apoio financeiro
   Para que possa melhorar meu negócio
 
+    @watch
+    Cenário: Quantidade de resultados
+      Dado que estou na pagina do navegador
+      E o contador de resultados indica a quantidade correta
+      Quando clico no checkbox "somente MPME"
+      Então o contador de resultados indica a quantidade correta
+
     Cenário: Navegar para um financiamento
       Dado que estou na pagina do navegador
       Quando clico no link "Cerealistas"
@@ -18,7 +25,6 @@ Funcionalidade: Navegar pelos financiamentos
       Quando clico novamente no checkbox "somente MPME"
       Então vejo financiamentos que são e outros que não são para MPME
 
-    @watch
     Cenário: Filtrar setores
       Dado que estou na pagina do navegador
       E vejo financiamentos de diversos setores
