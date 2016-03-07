@@ -1,4 +1,7 @@
 module.exports = function() {
+  // implementar PageObject
+  // https://github.com/webdriverio/webdriverio/blob/master/examples/pageobject/specs/checkbox.spec.js
+
 
   this.Given(/^que estou na pagina inicial$/, function () {
     browser.url('file:///Users/rafaelwalter/Documents/Projetos/navegador/client/index.html');
@@ -10,6 +13,10 @@ module.exports = function() {
 
    this.Given(/^vejo o filtro "([^"]*)"$/, function (texto) {
      expect(browser.isVisible('label*='+texto)).toBeTruthy();
+   });
+
+   this.Given(/^não vejo o filtro "([^"]*)"$/, function (texto) {
+     expect(browser.isVisible('label*='+texto)).toBeFalsy();
    });
 
    this.Given(/^vejo diversos setores$/, function () {

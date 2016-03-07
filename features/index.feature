@@ -19,3 +19,6 @@ Funcionalidade: Navegar pelos financiamentos
       E vejo diversos setores
       Quando navego para o setor "Agropecuária"
       Então sou direcionado para a página "Navegador - Agrupecuária"
+      E vejo o filtro "somente MPME"
+      E não vejo o filtro "filtrar setores"
+      E vejo o filtro "filtrar finalidades"
