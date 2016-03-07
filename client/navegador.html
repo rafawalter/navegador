@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="navegadorApp" >
+<html ng-app="navegadorApp">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
@@ -14,7 +14,7 @@
     <script src="js/lib/angular-1.5.0/angular-route.min.js"></script>
 
     <link rel="stylesheet" href="css/main.css">
-	   <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
     <script src="navegador/navegador-controller.js"></script>
     <script src="util/meus-utilitarios.js"></script>
     <script src="financiamento/financiamento-resource.js"></script>
@@ -22,51 +22,62 @@
   </head>
 
   <body ng-controller="NavegadorController">
-  	<div class='container'>
-		<h1>Navegador</h1>
+    <div class='container'>
+      <h1>Navegador</h1>
 
-	  	<div id='mpme'>
-		    <h2><label><input type="checkbox" ng-model="filtro.somenteMpme"/> somente MPME<label></h2>
-		    Melhores opções para Micro, Pequenas e Médias Empresas (faturamento até R$90 milhões)
-	  	</div>
+      <div id='mpme'>
+        <label>
+          <input type="checkbox" ng-model="filtro.somenteMpme"/>
+          somente MPME
+        </label>
+        <p>Melhores opções para Micro, Pequenas e Médias Empresas (faturamento até R$90 milhões)</p>
+      </div>
 
-	  	<div id="setores">
-	    	<h2><input type="checkbox" ng-model="filtro.filtrarSetores"/> filtrar Setores</h2>
+      <div id="setores">
+        <label>
+          <input id="filtrarSetores" type="checkbox" ng-model="filtro.filtrarSetores"/>
+          filtrar setores
+        </label>
         <div>
-  				<div>
-  				  <ul class="unstyled">
-  					<li ng-repeat="setor in setores">
-  					  <label class="radioButton">
-  						<input type="radio" name="setor" value="{{setor.nome}}" ng-model="filtro.setor">
-  						<span>{{setor.nome}}</span>
-  					  </label>
-  					</li>
-  				  </ul>
-  				</div>
-				<br>
-			</div>
-	  	</div>
+          <div>
+            <ul class="unstyled">
+              <li ng-repeat="setor in setores">
+                <div class="radioButton">
+                  <label>
+                    <input type="radio" name="setor" value="{{setor.nome}}" ng-change='setorAlterado()' ng-model="filtro.setor">
+                    {{setor.nome}}
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <br>
+        </div>
+      </div>
 
-	  	<div id="finalidades">
-		    <h2><input type="checkbox" ng-model="filtro.filtrarFinalidades"/> filtrar Finalidades</h2>
-		    <div>
-				<div>
-				  <ul class="unstyled">
-					<li ng-repeat="finalidade in finalidades">
-					  <label class="radioButton">
-						<input type="radio" name="finalidade" value="{{finalidade.nome}}" ng-model="filtro.finalidade">
-						<span>{{finalidade.nome}}</span>
-					  </label>
-					</li>
-				  </ul>
-				</div>
-				<br>
-			</div>
-	  	</div>
+      <div id="finalidades">
+        <label>
+          <input id='filtrarFinalidades' type="checkbox" ng-model="filtro.filtrarFinalidades"/>
+          filtrar finalidades
+        </label>
+      </div>
+      <div>
+        <ul class="unstyled">
+          <li ng-repeat="finalidade in finalidades">
+            <label class="radioButton">
+              <input type="radio" name="finalidade" value="{{finalidade.nome}}" ng-model="filtro.finalidade">
+              <span>{{finalidade.nome}}</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <br>
+    </div>
+  </div>
 
-	  	<div id="resultados">
-	  		<h2>Resultados</h2>
-<!--
+  <div id="resultados">
+    <h2>Resultados</h2>
+    <!--
 			<div id='filtros'>
 				<h3>Filtro</h3>
 				<p>
@@ -78,36 +89,45 @@
 				</p>
 			</div>
 -->
-      <p>{{financiamentosFiltrados.length}} resultado(s)</p>
-			<table class='table table-striped table-hover'>
-				<thead>
-					<tr>
-						<th>Informações básicas</th>
-						<th>Condições Financeiras</th>
-						<th>Linha/ Programa</th>
-						<th>MPME?</th>
-						<th>Setores</th>
-						<th>Finalidades</th>
-					</tr>
-				</thead>
-				<tbody>
+    <p>{{financiamentosFiltrados.length}}
+      resultado(s)</p>
+    <table class='table table-striped table-hover'>
+      <thead>
+        <tr>
+          <th>Informações básicas</th>
+          <th>Condições Financeiras</th>
+          <th>Linha/ Programa</th>
+          <th>MPME?</th>
+          <th>Setores</th>
+          <th>Finalidades</th>
+        </tr>
+      </thead>
+      <tbody class'financiamentos'>
 
-						<tr class='financiamento' ng-repeat="financiamento in financiamentosFiltrados()">
+        <tr class='financiamento' ng-repeat="financiamento in financiamentosFiltrados()">
 
-            		<td>{{financiamento.infoBasicas}}</td>
-  							<td>{{financiamento.condicoesFin}}</td>
-  							<td>
-                  <a href='financiamento.html?id={{financiamento.id}}'>
-                    {{financiamento.linhasProg}}
-                  </a>
-                </td>
-  							<td class='mpme'>{{financiamento.mpme}}</td>
-  							<td><span ng-repeat="setor in financiamento.setores">{{setor}}, </span></td>
-  							<td><span ng-repeat="finalidade in financiamento.finalidades">{{finalidade}}, </span></td>
-            </tr>
-				</tbody>
-			</table>
-	  	</div>
-   	</div>
-  </body>
+          <td>{{financiamento.infoBasicas}}</td>
+          <td>{{financiamento.condicoesFin}}</td>
+          <td>
+            <a href='financiamento.html?id={{financiamento.id}}'>
+              {{financiamento.linhasProg}}
+            </a>
+          </td>
+          <td class='mpme'>{{financiamento.mpme}}</td>
+          <td class='setores'>
+              <span class='setor' ng-repeat="setor in financiamento.setores">
+                {{setor}}{{$last ? '' : ', '}}
+              </span>
+          </td>
+          <td>
+            <span ng-repeat="finalidade in financiamento.finalidades">
+              {{finalidade}}{{$last ? '' : ', '}}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
 </html>

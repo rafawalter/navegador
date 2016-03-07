@@ -13,8 +13,13 @@ angular.module('navegadorApp')
   		finalidade: undefined,
   	};
 
+    $scope.setorAlterado = function() {
+      $scope.filtro.filtrarSetores = true;
+    };
+
   	$scope.financiamentosFiltrados = function() {
       var filtro = $scope.filtro;
+
       //console.log('filtro: ',filtro);
   		return $scope.financiamentos.filter( function( financiamento ) {
   			if (filtro.somenteMpme && !financiamento.mpme) {

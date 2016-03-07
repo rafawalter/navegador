@@ -16,6 +16,13 @@ angular.module("meusUtilitarios", [])
         return parametrosHash;
 		};
 
+		servico.removerRepeticoesDoArray = function(array) {
+		    return array.sort().filter(function(item, pos, ary) {
+		        return !pos || item != ary[pos - 1];
+		    })
+		};
+
+
 		return servico;
   }).factory('recursoFinalidades', function(){
     var servico = {};
