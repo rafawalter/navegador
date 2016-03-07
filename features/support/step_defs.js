@@ -52,7 +52,7 @@ module.exports = function() {
     expect(contagemFinanciamentos).toBe(contagemTagSetorDesejado);
   });
 
-  this.Given(/^vejo "filtrar setores" marcado$/, function(arg1) {
+  this.Given(/^vejo "filtrar setores" marcado$/, function() {
     expect(browser.isSelected('#filtrarSetores')).toBeTruthy();
   });
 };

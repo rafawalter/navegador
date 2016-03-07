@@ -25,6 +25,6 @@ Funcionalidade: Navegar pelos financiamentos
       E vejo "filtrar setores" desmarcado
       Quando clico no setor "Agropecuária"
       Então vejo apenas financiamentos disponíveis para o setor "Agropecuária"
-      # E vejo "filtrar setores" marcado
+      E vejo "filtrar setores" marcado
       Quando clico no checkbox "filtrar setores"
       Então vejo novamente financiamentos de diversos setores
