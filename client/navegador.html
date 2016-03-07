@@ -1,11 +1,11 @@
 <!doctype html>
-<html ng-app="navegadorApp">
+<html ng-app="navegadorApp" ng-controller="NavegadorController">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Navegador</title>
+    <title>{{pageTitle}}</title>
 
     <link rel="stylesheet" href="js/lib/bootstrap-3.3.6-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="js/lib/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
@@ -21,11 +21,11 @@
     <script src="setor/setor-resource.js"></script>
   </head>
 
-  <body ng-controller="NavegadorController">
+  <body>
     <div class='container'>
-      <h1>Navegador</h1>
+      <h1>{{pageTitle}}</h1>
 
-      <div id='mpme'>
+      <div id='mpme' ng-hide='{{ocultarFiltroMpme}}'>
         <label>
           <input type="checkbox" ng-model="filtro.somenteMpme"/>
           somente MPME
@@ -33,7 +33,7 @@
         <p>Melhores opções para Micro, Pequenas e Médias Empresas (faturamento até R$90 milhões)</p>
       </div>
 
-      <div id="setores">
+      <div id="setores" ng-hide='{{ocultarFiltroSetores}}'>
         <label>
           <input id="filtrarSetores" type="checkbox" ng-model="filtro.filtrarSetores"/>
           filtrar setores
@@ -55,7 +55,7 @@
         </div>
       </div>
 
-      <div id="finalidades">
+      <div id="finalidades" ng-hide='{{ocultarFiltroFinalidades}}'>
         <label>
           <input id='filtrarFinalidades' type="checkbox" ng-model="filtro.filtrarFinalidades"/>
           filtrar finalidades

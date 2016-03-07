@@ -1,9 +1,24 @@
 angular.module('navegadorApp')
-  .controller('NavegadorController', function($scope, recursoSetores, recursoFinalidades, recursoFinanciamentos) {
+  .controller('NavegadorController', function($scope, util, recursoSetores, recursoFinalidades, recursoFinanciamentos) {
 
     $scope.setores = recursoSetores.obter();
   	$scope.finalidades = recursoFinalidades.obter();
     $scope.financiamentos = recursoFinanciamentos.obter();
+
+    $scope.parametrosDaUrl = util.obterParametrosDaUrl();
+    $scope.pageTitle = 'Todos os financiamentos';
+    if ($scope.parametrosDaUrl.mpme) {
+      $scope.ocultarFiltroMpme = true;
+      $scope.pageTitle = 'Financiamentos para MPME';
+    };
+    if ($scope.parametrosDaUrl.setor) {
+      $scope.ocultarFiltroSetores = true;
+      $scope.pageTitle = 'Financiamentos para o setor ' + $scope.parametrosDaUrl.setor;
+    };
+    if ($scope.parametrosDaUrl.finalidade) {
+      $scope.ocultarFiltroFinalidades = true;
+      $scope.pageTitle = 'Financiamentos para a finalidade ' + $scope.parametrosDaUrl.finalidade;
+    };
 
   	$scope.filtro = {
   		somenteMpme: false,
