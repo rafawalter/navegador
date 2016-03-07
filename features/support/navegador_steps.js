@@ -1,4 +1,5 @@
 module.exports = function() {
+
   this.Given(/^que estou na pagina do navegador$/, function() {
     browser.url('file:///Users/rafaelwalter/Documents/Projetos/navegador/client/navegador.html');
   });
@@ -49,6 +50,7 @@ module.exports = function() {
     var contagemTagSetorDesejado = browser.getText('.financiamento .setor').filter(function(nomeEncontrado){
       return (nomeEncontrado == nomeSetor)||(nomeEncontrado == nomeSetor+',');
     }).length;
+    //console.log(browser.element('.financiamento').elements('.setor*="Agropecuaria”').length);
     expect(contagemFinanciamentos).toBe(contagemTagSetorDesejado);
   });
 

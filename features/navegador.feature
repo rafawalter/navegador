@@ -5,7 +5,6 @@ Funcionalidade: Navegar pelos financiamentos
   Eu quero conhecer as formas de apoio financeiro
   Para que possa melhorar meu negócio
 
-    @watch
     Cenário: Quantidade de resultados
       Dado que estou na pagina do navegador
       E o contador de resultados indica a quantidade correta
