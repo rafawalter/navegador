@@ -1,0 +1,25 @@
+{
+  "name": "navegador",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Rafael Walter <rafawalter@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/rafawalter/navegador",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "client/bower-components/"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0",
+    "bootstrap": "~3.3.6",
+    "underscore": "^1.8.3",
+    "angular-route": "^1.5.0"
+  }
+}

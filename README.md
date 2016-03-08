@@ -1,6 +1,11 @@
 # navegador
 filtro de grid utilizando AngularJS
 
+instalar depedências:
+npm install
+bower install
+
+
 referências adicionais:
 Porque BDD e cucumber?
 https://cucumber.io/school

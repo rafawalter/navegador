@@ -1,9 +1,11 @@
 angular.module("meusUtilitarios", [])
-	.factory('util', function() {
+	.factory('_', function() {
+		return window._; // assumes underscore has already been loaded on the page
+	}).factory('util', function() {
 		var servico = {};
 
 		servico.obterParametrosDaUrl = function() {
-        var parametroNaUrl = window.location.search;
+        var parametroNaUrl = decodeURI(window.location.search);
         var parametrosArray = parametroNaUrl.replace('?','').split("&");
         var parametrosHash = {};
 

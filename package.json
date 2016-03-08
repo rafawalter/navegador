@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "chimp": "^0.30.0"
+    "bower": "^1.7.7",
+    "chimp": "^0.30.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {},
   "scripts": {

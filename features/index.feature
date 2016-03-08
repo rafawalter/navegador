@@ -8,7 +8,7 @@ Funcionalidade: Navegar pelos financiamentos
     Cenário: Todas as opções
       Dado que estou na pagina inicial
       Quando clico no link "todas as opções de apoio financeiro"
-      Então sou direcionado para a página "Navegador"
+      Então sou direcionado para a página "Todos os financiamentos"
       E vejo o filtro "somente MPME"
       E vejo o filtro "filtrar setores"
       E vejo o filtro "filtrar finalidades"
@@ -16,9 +16,9 @@ Funcionalidade: Navegar pelos financiamentos
       @watch
     Cenário: Navegação pelo setor
       Dado que estou na pagina inicial
-      E vejo diversos setores
+      E vejo diversos setores 
       Quando navego para o setor "Agropecuária"
-      Então sou direcionado para a página "Navegador - Agrupecuária"
+      Então sou direcionado para a página "Financiamentos para Agropecuária"
       E vejo o filtro "somente MPME"
       E não vejo o filtro "filtrar setores"
       E vejo o filtro "filtrar finalidades"

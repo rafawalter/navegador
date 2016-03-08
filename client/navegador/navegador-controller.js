@@ -6,6 +6,7 @@ angular.module('navegadorApp')
     $scope.financiamentos = recursoFinanciamentos.obter();
 
     $scope.parametrosDaUrl = util.obterParametrosDaUrl();
+
     $scope.pageTitle = 'Todos os financiamentos';
     if ($scope.parametrosDaUrl.mpme) {
       $scope.ocultarFiltroMpme = true;
@@ -13,11 +14,11 @@ angular.module('navegadorApp')
     };
     if ($scope.parametrosDaUrl.setor) {
       $scope.ocultarFiltroSetores = true;
-      $scope.pageTitle = 'Financiamentos para o setor ' + $scope.parametrosDaUrl.setor;
+      $scope.pageTitle = 'Financiamentos para ' + $scope.parametrosDaUrl.setor;
     };
     if ($scope.parametrosDaUrl.finalidade) {
       $scope.ocultarFiltroFinalidades = true;
-      $scope.pageTitle = 'Financiamentos para a finalidade ' + $scope.parametrosDaUrl.finalidade;
+      $scope.pageTitle = 'Financiamentos para ' + $scope.parametrosDaUrl.finalidade;
     };
 
   	$scope.filtro = {
