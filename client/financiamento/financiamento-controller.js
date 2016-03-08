@@ -16,4 +16,5 @@ angular.module('navegadorApp')
     };
 
 	  $scope.financiamento = $scope.financiamentos[id];
+    $scope.pageTitle = $scope.financiamento.linhasProg;
 	});

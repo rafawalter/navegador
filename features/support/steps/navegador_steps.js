@@ -1,16 +1,18 @@
 module.exports = function() {
+  var NavegadorPage = require('../pageobjects/navegador.page');
+  var Page = require('../pageobjects/page');
 
   this.Given(/^que estou na pagina do navegador$/, function() {
-    browser.url('file:///Users/rafaelwalter/Documents/Projetos/navegador/client/navegador.html');
+    NavegadorPage.open();
   });
 
-  this.Given('clico no link "$texto"', function(texto) {
-    var locator = 'a=' + texto;
-    browser.click(locator);
+  this.Given('clico no setor "$nome"', function(nome) {
+    NavegadorPage.clicarNoSetor(nome);
   });
 
   this.Given('vejo a página "$titulo"', function(titulo) {
-    expect(browser.getText('h1')).toEqual(titulo);
+    expect(Page.titulo()).toEqual(titulo);
+//    expect(browser.getText('h1')).toEqual(titulo);
   });
 
   this.Given(/^vejo financiamentos que são e outros que não são para MPME$/, function() {
@@ -41,7 +43,7 @@ module.exports = function() {
     expect(browser.isSelected('#filtrarSetores')).toBeFalsy();
   });
 
-  this.Given(/^clico no setor "([^"]*)"$/, function(texto) {
+  this.Given(/^clico no filtro do setor "([^"]*)"$/, function(texto) {
     browser.click('label='+texto);
   });
 

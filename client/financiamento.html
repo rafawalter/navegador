@@ -1,11 +1,11 @@
 <!doctype html>
-<html ng-app="navegadorApp" >
+<html ng-app="navegadorApp" ng-controller="FinanciamentoController">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Navegador</title>
+    <title>{{pageTitle}}</title>
     <link rel="stylesheet" href="bower-components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower-components/bootstrap/dist/css/bootstrap-theme.min.css">
 
@@ -19,7 +19,7 @@
     <script src="financiamento/financiamento-resource.js"></script>
   </head>
 
-  <body ng-controller="FinanciamentoController">
+  <body>
   	<div class='container'>
       <div id='mensagem' class='alert-danger'>
         {{mensagem}}

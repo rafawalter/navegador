@@ -6,7 +6,7 @@ module.exports = function() {
   });
 
   this.Given(/^sou direcionado para a página "([^"]*)"$/, function (titulo) {
-    expect(IndexPage.titulo).toBe(titulo);
+    expect(IndexPage.titulo()).toBe(titulo);
    });
 
    this.Given(/^vejo o filtro "([^"]*)"$/, function (nomeFiltro) {
