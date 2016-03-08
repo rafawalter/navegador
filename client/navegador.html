@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="bower-components/bootstrap/dist/css/bootstrap-theme.min.css">
 
     <link rel="stylesheet" href="bower-components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="bower-components/datatables.net-responsive-bs/css/responsive.bootstrap.min.css">
 
 
     <script src="bower-components/angular/angular.min.js"></script>
@@ -18,12 +19,13 @@
 
     <script src="bower-components/jquery/dist/jquery.min.js"></script>
     <script src="bower-components/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="bower-components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="bower-components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="bower-components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="bower-components/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
 
     <link rel="stylesheet" href="css/main.css">
 
-    <script src="js/main.js"></script>
+    <script src="main.js"></script>
     <script src="util/meus-utilitarios.js"></script>
     <script src="navegador/navegador-controller.js"></script>
     <script src="financiamento/financiamento-resource.js"></script>
@@ -132,7 +134,7 @@
         <script type="text/javascript">
           jQuery(document).ready(function() {
               jQuery('.datatable').DataTable({
-            "language": {
+            responsive: true, "language": {
                 "url": "http://cdn.datatables.net/plug-ins/1.10.11/i18n/Portuguese-Brasil.json"
             }
         });
