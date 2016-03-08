@@ -10,7 +10,7 @@ angular.module('navegadorApp')
     $scope.filtro = {
       somenteMpme: false,
       filtrarSetores: false,
-      setor: 'Agropecuária',
+      setor: undefined,
       filtrarFinalidades: false,
       finalidade: undefined,
     };
@@ -21,20 +21,25 @@ angular.module('navegadorApp')
       $scope.pageTitle = 'Financiamentos para MPME';
       $scope.filtro.somenteMpme = true;
     };
-    var setorURL = $scope.parametrosDaUrl.setor;
-    if (setorURL) {
+    if ($scope.parametrosDaUrl.setor) {
       $scope.ocultarFiltroSetores = true;
       $scope.pageTitle = 'Financiamentos para ' + $scope.parametrosDaUrl.setor;
-      $scope.filtro.setor = setorURL;
+      $scope.filtro.setor = $scope.parametrosDaUrl.setor;
       $scope.filtro.filtrarSetores = true;
     };
     if ($scope.parametrosDaUrl.finalidade) {
       $scope.ocultarFiltroFinalidades = true;
       $scope.pageTitle = 'Financiamentos para ' + $scope.parametrosDaUrl.finalidade;
+      $scope.filtro.finalidade = $scope.parametrosDaUrl.finalidade;
+      $scope.filtro.filtrarFinalidades = true;
     };
 
     $scope.setorAlterado = function() {
       $scope.filtro.filtrarSetores = true;
+    };
+
+    $scope.finalidadeAlterada = function() {
+      $scope.filtro.filtrarFinalidades = true;
     };
 
   	$scope.financiamentosFiltrados = function() {
