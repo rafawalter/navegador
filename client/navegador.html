@@ -10,8 +10,16 @@
     <link rel="stylesheet" href="bower-components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower-components/bootstrap/dist/css/bootstrap-theme.min.css">
 
+    <link rel="stylesheet" href="bower-components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
+
     <script src="bower-components/angular/angular.min.js"></script>
     <script src="bower-components/angular-route/angular-route.min.js"></script>
+
+    <script src="bower-components/jquery/dist/jquery.min.js"></script>
+    <script src="bower-components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="bower-components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="bower-components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="css/main.css">
 
@@ -73,7 +81,7 @@
       <br>
 
       <div id="resultados">
-        <h2>Resultados</h2>
+        <h2>Resultados (<span id='contador-de-financiamentos'>{{financiamentosFiltrados().length}}</span>)</h2>
         <!--
 			<div id='filtros'>
 				<h3>Filtro</h3>
@@ -86,13 +94,8 @@
 				</p>
 			</div>
 -->
-        <p>
-          <span id='contador-de-financiamentos'>
-            {{financiamentosFiltrados().length}}
-          </span>
-          resultado(s)
-        </p>
-        <table class='table table-striped table-hover'>
+
+        <table class='table table-striped table-hover datatable'>
           <thead>
             <tr>
               <th>Informações básicas</th>
@@ -128,6 +131,15 @@
             </tr>
           </tbody>
         </table>
+        <script type="text/javascript">
+          jQuery(document).ready(function() {
+              jQuery('.datatable').DataTable({
+            "language": {
+                "url": "http://cdn.datatables.net/plug-ins/1.10.11/i18n/Portuguese-Brasil.json"
+            }
+        });
+          } );
+        </script>
       </div>
     </div>
   </div>
