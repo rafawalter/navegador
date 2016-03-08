@@ -12,6 +12,7 @@ Funcionalidade: Navegar pelos financiamentos
       E vejo o filtro "somente MPME"
       E vejo o filtro "filtrar setores"
       E vejo o filtro "filtrar finalidades"
+      E vejo todos os programas
 
     Cenário: Navegação por MPME
       Dado que estou na pagina inicial
@@ -20,6 +21,7 @@ Funcionalidade: Navegar pelos financiamentos
       E não vejo o filtro "somente MPME"
       E vejo o filtro "filtrar setores"
       E vejo o filtro "filtrar finalidades"
+      E vejo somente os programas que são MPME
 
     Cenário: Navegação pelo setor
       Dado que estou na pagina inicial
@@ -29,3 +31,4 @@ Funcionalidade: Navegar pelos financiamentos
       E vejo o filtro "somente MPME"
       E não vejo o filtro "filtrar setores"
       E vejo o filtro "filtrar finalidades"
+      E vejo somente os programas com setor igual ao setor ecolhido

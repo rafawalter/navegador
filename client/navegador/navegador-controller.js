@@ -7,27 +7,31 @@ angular.module('navegadorApp')
 
     $scope.parametrosDaUrl = util.obterParametrosDaUrl();
 
+    $scope.filtro = {
+      somenteMpme: false,
+      filtrarSetores: false,
+      setor: 'Agropecuária',
+      filtrarFinalidades: false,
+      finalidade: undefined,
+    };
+
     $scope.pageTitle = 'Todos os financiamentos';
     if ($scope.parametrosDaUrl.mpme) {
       $scope.ocultarFiltroMpme = true;
       $scope.pageTitle = 'Financiamentos para MPME';
+      $scope.filtro.somenteMpme = true;
     };
-    if ($scope.parametrosDaUrl.setor) {
+    var setorURL = $scope.parametrosDaUrl.setor;
+    if (setorURL) {
       $scope.ocultarFiltroSetores = true;
       $scope.pageTitle = 'Financiamentos para ' + $scope.parametrosDaUrl.setor;
+      $scope.filtro.setor = setorURL;
+      $scope.filtro.filtrarSetores = true;
     };
     if ($scope.parametrosDaUrl.finalidade) {
       $scope.ocultarFiltroFinalidades = true;
       $scope.pageTitle = 'Financiamentos para ' + $scope.parametrosDaUrl.finalidade;
     };
-
-  	$scope.filtro = {
-  		somenteMpme: false,
-      filtrarSetores: false,
-  		setor: undefined,
-      filtrarFinalidades: false,
-  		finalidade: undefined,
-  	};
 
     $scope.setorAlterado = function() {
       $scope.filtro.filtrarSetores = true;
