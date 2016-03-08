@@ -13,7 +13,6 @@ Funcionalidade: Navegar pelos financiamentos
       E vejo o filtro "filtrar setores"
       E vejo o filtro "filtrar finalidades"
 
-      @watch
     Cenário: Navegação por MPME
       Dado que estou na pagina inicial
       Quando clico no link "Melhores opções para quem tem faturamento anual até R$90 milhões."
@@ -22,6 +21,7 @@ Funcionalidade: Navegar pelos financiamentos
       E vejo o filtro "filtrar setores"
       E vejo o filtro "filtrar finalidades"
 
+    @watch
     Cenário: Navegação pelo setor
       Dado que estou na pagina inicial
       E vejo diversos setores

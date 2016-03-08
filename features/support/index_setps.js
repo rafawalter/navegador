@@ -2,13 +2,14 @@ module.exports = function() {
   // implementar PageObject
   // https://github.com/webdriverio/webdriverio/blob/master/examples/pageobject/specs/checkbox.spec.js
 
+  var IndexPage = require('./pageobjects/index.page');
 
   this.Given(/^que estou na pagina inicial$/, function () {
-    browser.url('file:///Users/rafaelwalter/Documents/Projetos/navegador/client/index.html');
+    IndexPage.open();
   });
 
   this.Given(/^sou direcionado para a página "([^"]*)"$/, function (titulo) {
-    expect(browser.getTitle()).toBe(titulo);
+    expect(IndexPage.titulo).toBe(titulo);
    });
 
    this.Given(/^vejo o filtro "([^"]*)"$/, function (texto) {
@@ -20,10 +21,12 @@ module.exports = function() {
    });
 
    this.Given(/^vejo diversos setores$/, function () {
-     expect(browser.elements('#setores .setor').value.length).toBe(7);
+     expect(IndexPage.setores.length).toBe(7);
   });
 
   this.Given(/^navego para o setor "([^"]*)"$/, function (nomeSetor) {
+    //console.log(IndexPage.texto(nomeSetor))
+    //IndexPage.setor(nomeSetor).click();
     browser.click('a='+nomeSetor);
   });
 }
