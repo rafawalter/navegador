@@ -14,9 +14,17 @@ Funcionalidade: Navegar pelos financiamentos
       E vejo o filtro "filtrar finalidades"
 
       @watch
+    Cenário: Navegação por MPME
+      Dado que estou na pagina inicial
+      Quando clico no link "Melhores opções para quem tem faturamento anual até R$90 milhões."
+      Então sou direcionado para a página "Financiamentos para MPME"
+      E não vejo o filtro "somente MPME"
+      E vejo o filtro "filtrar setores"
+      E vejo o filtro "filtrar finalidades"
+
     Cenário: Navegação pelo setor
       Dado que estou na pagina inicial
-      E vejo diversos setores 
+      E vejo diversos setores
       Quando navego para o setor "Agropecuária"
       Então sou direcionado para a página "Financiamentos para Agropecuária"
       E vejo o filtro "somente MPME"
