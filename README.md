@@ -19,6 +19,9 @@ https://chimp.readme.io/docs/introduction
 Jasmine expectations
 http://jasmine.github.io/2.3/introduction.html#section-Expectations
 
+PageObject em JS
+https://github.com/webdriverio/webdriverio/blob/master/examples/pageobject/specs/checkbox.spec.js
+
 WebdriverIO - browser driver
 http://webdriver.io/
 http://webdriver.io/guide.html - developer guide
