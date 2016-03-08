@@ -45,7 +45,6 @@ angular.module('navegadorApp')
   	$scope.financiamentosFiltrados = function() {
       var filtro = $scope.filtro;
 
-      //console.log('filtro: ',filtro);
   		return $scope.financiamentos.filter( function( financiamento ) {
   			if (filtro.somenteMpme && !financiamento.mpme) {
   				return false;
@@ -56,9 +55,12 @@ angular.module('navegadorApp')
   			if((filtro.filtrarFinalidades) && (filtro.finalidade) && (financiamento.finalidades.indexOf(filtro.finalidade)== -1 )){
   				return false;
   			}
-        //adicionarSetoresPossiveis(financiamento.setores);
   			return true;
       });
+    };
+
+    $scope.existemFinanciamentosFiltradosParaSetor = function(nomeSetor) {
+      return true;
     };
 /*
       var nomesSetoresPossiveis = [];

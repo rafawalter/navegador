@@ -55,7 +55,7 @@
               <li ng-repeat="setor in setores">
                 <div class="radioButton">
                   <label>
-                    <input type="radio" name="setor" value="{{setor.nome}}" ng-change='setorAlterado()' ng-model="filtro.setor">
+                    <input type="radio" name="setor" value="{{setor.nome}}" ng-change='setorAlterado()' ng-model="filtro.setor" ng-disabled='!existemFinanciamentosFiltradosParaSetor(setor.nome)'>
                     {{setor.nome}}
                   </label>
                 </div>
