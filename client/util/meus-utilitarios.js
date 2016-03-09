@@ -18,5 +18,21 @@ angular.module("meusUtilitarios", [])
         return parametrosHash;
 		};
 
+		servico.iniciarDataTable = function(locator) {
+			jQuery(locator).DataTable({
+				responsive: true, "language": {
+						"url": "http://cdn.datatables.net/plug-ins/1.10.11/i18n/Portuguese-Brasil.json"
+				}
+			});
+		};
+
+		servico.tornarLinhasClicaveis = function(locator) {
+			jQuery(locator+' tbody tr').click(function(){
+					window.location = jQuery(this).attr('href');
+
+					return false;
+			});
+		};
+
 		return servico;
   });

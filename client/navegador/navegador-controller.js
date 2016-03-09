@@ -62,6 +62,13 @@ angular.module('navegadorApp')
     $scope.existemFinanciamentosFiltradosParaSetor = function(nomeSetor) {
         return true;
     };
+
+    jQuery(document).ready(function() {
+        var locator = '.datatable';
+        util.iniciarDataTable(locator);
+        util.tornarLinhasClicaveis(locator);
+      });
+
 /*
       var nomesSetoresPossiveis = [];
      function adicionarSetoresPossiveis(nomesSetores) {

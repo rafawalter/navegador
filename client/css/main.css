@@ -5,3 +5,11 @@ li {
 label:has(input:disabled) {
 	text-decoration: line-through;
 }
+
+table.datatable tbody tr {
+    cursor: pointer;
+}
+
+table.datatable tbody tr:hover{
+		background-color: rgb(226, 234, 249);
+}
