@@ -133,6 +133,28 @@
           </tbody>
         </table>
         <script type="text/javascript">
+          jQuery(document).ready(function() {
+            var locator = '.datatable';
+
+            iniciarDataTable = function(locator) {
+              jQuery(locator).DataTable({
+                responsive: true, "language": {
+                    "url": "http://cdn.datatables.net/plug-ins/1.10.11/i18n/Portuguese-Brasil.json"
+                }
+              });
+            };
+
+            tornarLinhasClicaveis = function(locator) {
+              jQuery(locator+' tbody tr').click(function(){
+                  window.location = jQuery(this).attr('href');
+
+                  return false;
+              });
+            };
+
+            iniciarDataTable(locator);
+            tornarLinhasClicaveis(locator);
+          });
         </script>
       </div>
     </div>

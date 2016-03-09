@@ -19,7 +19,7 @@
     <script src="navegador/navegador-controller.js"></script>
     <script src="util/meus-utilitarios.js"></script>
     <script src="financiamento/financiamento-resource.js"></script>
-    <script src="finalidade/finalidade-resource.js"></script>    
+    <script src="finalidade/finalidade-resource.js"></script>
     <script src="setor/setor-resource.js"></script>
   </head>
 
@@ -42,6 +42,14 @@
           <ul>
             <li ng-repeat='setor in setores'>
               <a class='btn btn-primary setor' href='navegador.html?setor={{setor.nome}}'>{{setor.nome}}</a>
+            </li>
+          </ul>
+        </div>
+        <div id='finalidades'>
+          <h2>Finalidades</h2>
+          <ul>
+            <li ng-repeat='finalidade in finalidades'>
+              <a class='btn btn-primary finalidade' href='navegador.html?finalidade={{finalidade.nome}}'>{{finalidade.nome}}</a>
             </li>
           </ul>
         </div>

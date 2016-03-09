@@ -31,4 +31,14 @@ Funcionalidade: Navegar pelos financiamentos
       E vejo o filtro "somente MPME"
       E não vejo o filtro "filtrar setores"
       E vejo o filtro "filtrar finalidades"
-      E vejo somente os programas com setor igual ao setor ecolhido
+      E vejo somente os programas com o setor "Agropecuária"
+
+    Cenário: Navegação pela finalidade
+      Dado que estou na pagina inicial
+      E vejo diversas finalidades
+      Quando navego para a finalidade "Crédito rural"
+      Então sou direcionado para a página "Financiamentos para Crédito rural"
+      E vejo o filtro "somenteMPME"
+      E não vejo o filtro "filtrar setores"
+      E não vejo o filtro "filtrar finalidades"
+      E vejo somente os programas com a finalidade "Crédito rural"
