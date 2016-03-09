@@ -60,7 +60,7 @@ angular.module('navegadorApp')
     };
 
     $scope.existemFinanciamentosFiltradosParaSetor = function(nomeSetor) {
-      return true;
+        return true;
     };
 /*
       var nomesSetoresPossiveis = [];
