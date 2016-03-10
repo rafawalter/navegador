@@ -32,8 +32,6 @@ angular.module('navegadorApp')
       $scope.pageTitle = 'Financiamentos para ' + $scope.parametrosDaUrl.finalidade;
       $scope.filtro.finalidade = $scope.parametrosDaUrl.finalidade;
       $scope.filtro.filtrarFinalidades = true;
-      $scope.ocultarFiltroSetores = true; // Oculta-se também os setores quando selecionada a finalidade,
-                                          // conforme o modelo photoshop (no invision)
     };
 
     $scope.setorAlterado = function() {
