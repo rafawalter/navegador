@@ -125,7 +125,7 @@
                 </span>
               </td>
               <td>
-                <span ng-repeat="finalidade in financiamento.finalidades">
+                <span class='finalidade' ng-repeat="finalidade in financiamento.finalidades">
                   {{finalidade}}{{$last ? '' : ', '}}
                 </span>
               </td>
@@ -147,7 +147,6 @@
             tornarLinhasClicaveis = function(locator) {
               jQuery(locator+' tbody tr').click(function(){
                   window.location = jQuery(this).attr('href');
-
                   return false;
               });
             };

@@ -13,6 +13,7 @@ angular.module('navegadorApp')
       setor: undefined,
       filtrarFinalidades: false,
       finalidade: undefined,
+      setores: [],
     };
 
     $scope.pageTitle = 'Todos os financiamentos';
@@ -45,7 +46,7 @@ angular.module('navegadorApp')
   	$scope.financiamentosFiltrados = function() {
       var filtro = $scope.filtro;
 
-  		return $scope.financiamentos.filter( function( financiamento ) {
+      var financiamentosFiltrados = $scope.financiamentos.filter( function( financiamento ) {
   			if (filtro.somenteMpme && !financiamento.mpme) {
   				return false;
   			}
@@ -57,12 +58,33 @@ angular.module('navegadorApp')
   			}
   			return true;
       });
+
+      $scope.setoresComFinanciamentos = calcularSetoresComFinanciamentos(financiamentosFiltrados);
+
+      return financiamentosFiltrados;
     };
+
+    function calcularSetoresComFinanciamentos(financiamentos){
+      console.log('aqui');
+      var arraySetoresComFinanciamentos= [];
+
+      financiamentos.forEach(function(financiamento){
+        financiamento.setores.forEach(function(setor) {
+          if (arraySetoresComFinanciamentos.indexOf(setor) == -1) {
+            arraySetoresComFinanciamentos.push(setor);
+          }
+        });
+      });
+
+      return arraySetoresComFinanciamentos;
+    }
 
     $scope.existemFinanciamentosFiltradosParaSetor = function(nomeSetor) {
+      if($scope.setoresComFinanciamentos.indexOf(nomeSetor) != -1){
         return true;
+      }
+      return false;
     };
-
 /*
       var nomesSetoresPossiveis = [];
      function adicionarSetoresPossiveis(nomesSetores) {
