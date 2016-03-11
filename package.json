@@ -4,12 +4,17 @@
   "main": "index.js",
   "dependencies": {
     "bower": "^1.7.7",
-    "chimp": "^0.30.0",
+    "protractor": "^3.1.1",
     "underscore": "^1.8.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "cucumber": "^0.9.5",
+    "protractor": "^3.1.1",
+    "protractor-cucumber-framework": "^0.3.4"
+  },
   "scripts": {
-    "test": "chimp"
+    "test": "protractor ./config/protractor.js",
+    "e2e": "protractor ./config/protractor.js"
   },
   "repository": {
     "type": "git",

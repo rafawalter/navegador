@@ -5,9 +5,10 @@ Funcionalidade: Navegar pelos financiamentos
   Eu quero conhecer as formas de apoio financeiro
   Para que possa melhorar meu negócio
 
+    @watch
     Cenário: Todas as opções
       Dado que estou na pagina inicial
-      Quando clico no link "todas as opções de apoio financeiro"
+      Quando clico no link para ver todas as opções
       Então sou direcionado para a página "Todos os financiamentos"
       E vejo o filtro "somente MPME"
       E vejo o filtro "filtrar setores"
@@ -16,7 +17,7 @@ Funcionalidade: Navegar pelos financiamentos
 
     Cenário: Navegação por MPME
       Dado que estou na pagina inicial
-      Quando clico no link "Melhores opções para quem tem faturamento anual até R$90 milhões."
+      Quando clico no link para MPMEs
       Então sou direcionado para a página "Financiamentos para MPME"
       E não vejo o filtro "somente MPME"
       E vejo o filtro "filtrar setores"
