@@ -7,6 +7,7 @@ angular.module('navegadorApp')
 
     $scope.parametrosDaUrl = util.obterParametrosDaUrl();
 
+
     $scope.filtro = {
       somenteMpme: false,
       filtrarSetores: false,
@@ -15,6 +16,7 @@ angular.module('navegadorApp')
       finalidade: undefined,
       setores: [],
     };
+
 
     $scope.pageTitle = 'Todos os financiamentos';
     if ($scope.parametrosDaUrl.mpme) {
@@ -37,15 +39,26 @@ angular.module('navegadorApp')
 
     $scope.setorAlterado = function() {
       $scope.filtro.filtrarSetores = true;
+      $scope.filtroAlterado();
     };
 
     $scope.finalidadeAlterada = function() {
       $scope.filtro.filtrarFinalidades = true;
+      $scope.filtroAlterado();
     };
 
-  	$scope.financiamentosFiltrados = function() {
-      var filtro = $scope.filtro;
+    $scope.filtroAlterado = function() {
+      recalcularFinanciamentosFiltrados();
+    }
 
+
+    function recalcularFinanciamentosFiltrados() {
+      $scope.financiamentosFiltrados = calcularFinanciamentosFiltrados();
+    }
+
+    function calcularFinanciamentosFiltrados() {
+      var filtro = $scope.filtro;
+      
       var financiamentosFiltrados = $scope.financiamentos.filter( function( financiamento ) {
   			if (filtro.somenteMpme && !financiamento.mpme) {
   				return false;
@@ -65,7 +78,6 @@ angular.module('navegadorApp')
     };
 
     function calcularSetoresComFinanciamentos(financiamentos){
-      console.log('aqui');
       var arraySetoresComFinanciamentos= [];
 
       financiamentos.forEach(function(financiamento){
@@ -85,25 +97,5 @@ angular.module('navegadorApp')
       }
       return false;
     };
-/*
-      var nomesSetoresPossiveis = [];
-     function adicionarSetoresPossiveis(nomesSetores) {
-        console.log('adicionando '+nomesSetores);
-        nomesSetores.forEach(function(nomeSetor) {
-        if (nomesSetoresPossiveis.indexOf(nomeSetor) == -1) {
-           nomesSetoresPossiveis.push(nomeSetor);
-        }
-        console.log('possíveis: ', nomesSetoresPossiveis);
-       });
-     };
-
-     $scope.setoresEnriquecidos = $scope.setores.map(function(setor) {
-       setor.possivel = (nomesSetoresPossiveis.indexOf(setor.nome) != -1);
-       return setor;
-     });
-
-     console.log('setores: ',$scope.setores);
-     console.log('setores possiveis: ',nomesSetoresPossiveis);
-     console.log('setores enriquecidos: ',$scope.setoresEnriquecidos);
-     */
+    recalcularFinanciamentosFiltrados();
   });

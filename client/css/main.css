@@ -2,8 +2,8 @@ li {
 	display: inline;
 }
 
-label:has(input:disabled) {
-	text-decoration: line-through;
+input[type="radio"]:disabled + label {
+    text-decoration: line-through;
 }
 
 table.datatable tbody tr {
