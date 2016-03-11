@@ -48,7 +48,6 @@ angular.module('navegadorApp')
     };
 
     $scope.somenteMpmeAlterada = function(){
-      $scope.filtro.somenteMpme = true;
       $scope.filtroAlterado();
     }
 
