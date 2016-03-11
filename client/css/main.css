@@ -2,8 +2,12 @@ li {
 	display: inline;
 }
 
+input[type="radio"]:disabled {
+	cursor: default;	
+}
+
 input[type="radio"]:disabled + label {
-    text-decoration: line-through;
+		color: lightgrey;
 }
 
 table.datatable tbody tr {
