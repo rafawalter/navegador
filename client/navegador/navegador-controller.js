@@ -47,6 +47,11 @@ angular.module('navegadorApp')
       $scope.filtroAlterado();
     };
 
+    $scope.somenteMpmeAlterada = function(){
+      $scope.filtro.somenteMpme = true;
+      $scope.filtroAlterado();
+    }
+
     $scope.filtroAlterado = function() {
       recalcularFinanciamentosFiltrados();
     }
@@ -58,9 +63,8 @@ angular.module('navegadorApp')
 
     function calcularFinanciamentosFiltrados() {
       var filtro = $scope.filtro;
-      
       var financiamentosFiltrados = $scope.financiamentos.filter( function( financiamento ) {
-  			if (filtro.somenteMpme && !financiamento.mpme) {
+  			if ((filtro.somenteMpme) && (!financiamento.mpme)) {
   				return false;
   			}
   			if((filtro.filtrarSetores) && (filtro.setor) && (financiamento.setores.indexOf(filtro.setor)== -1 )){
@@ -73,12 +77,28 @@ angular.module('navegadorApp')
       });
 
       $scope.setoresComFinanciamentos = calcularSetoresComFinanciamentos(financiamentosFiltrados);
+      $scope.finalidadesComFinanciamentos = calcularFinalidadesComFinanciamentos(financiamentosFiltrados);
 
       return financiamentosFiltrados;
     };
 
+    function calcularFinalidadesComFinanciamentos(financiamentos){
+      var arrayFinalidadesComFinanciamentos = [];
+
+      financiamentos.forEach(function(financiamento){
+        financiamento.finalidades.forEach(function(finalidade){
+          if(arrayFinalidadesComFinanciamentos.indexOf(finalidade) == -1){
+            arrayFinalidadesComFinanciamentos.push(finalidade);
+          }
+        });
+      });
+
+      return arrayFinalidadesComFinanciamentos;
+      console.log(arrayFinalidadesComFinanciamentos);
+    }
+
     function calcularSetoresComFinanciamentos(financiamentos){
-      var arraySetoresComFinanciamentos= [];
+      var arraySetoresComFinanciamentos = [];
 
       financiamentos.forEach(function(financiamento){
         financiamento.setores.forEach(function(setor) {
@@ -97,5 +117,13 @@ angular.module('navegadorApp')
       }
       return false;
     };
+
+    $scope.existemFinanciamentosFiltradosParaFinalidade = function(nomeFinalidade) {
+      if($scope.finalidadesComFinanciamentos.indexOf(nomeFinalidade) != -1){
+        return true;
+      }
+      return false;
+    };
+
     recalcularFinanciamentosFiltrados();
   });

@@ -41,7 +41,7 @@
 
       <div id='mpme' ng-hide='{{ocultarFiltroMpme}}'>
         <label>
-          <input type="checkbox" ng-model="filtro.somenteMpme"/>
+          <input type="checkbox" ng-model="filtro.somenteMpme" ng-change='filtroAlterado()'/>
           somente MPME
         </label>
         <p>Melhores opções para Micro, Pequenas e Médias Empresas (faturamento até R$90 milhões)</p>
@@ -71,15 +71,15 @@
 
       <div id="finalidades" ng-hide='{{ocultarFiltroFinalidades}}'>
         <label>
-          <input id='filtrarFinalidades' type="checkbox" ng-model="filtro.filtrarFinalidades"/>
+          <input id='filtrarFinalidades' type="checkbox" ng-model="filtro.filtrarFinalidades" ng-change='filtroAlterado()'/>
           filtrar finalidades
         </label>
         <ul class="unstyled">
           <li ng-repeat="finalidade in finalidades">
-            <label class="radioButton">
-              <input type="radio" name="finalidade" value="{{finalidade.nome}}" ng-change='finalidadeAlterada()' ng-model="filtro.finalidade">
-              <span>{{finalidade.nome}}</span>
-            </label>
+            <input type="radio" name="finalidade" value="{{finalidade.nome}}" ng-change='finalidadeAlterada()' ng-model="filtro.finalidade"  ng-disabled='!existemFinanciamentosFiltradosParaFinalidade(finalidade.nome)'>
+              <label class="radioButton">
+                {{finalidade.nome}}
+              </label>
           </li>
         </ul>
       </div>
