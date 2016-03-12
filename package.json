@@ -4,6 +4,7 @@
   "main": "index.js",
   "dependencies": {
     "bower": "^1.7.7",
+    "jasmine": "^2.4.1",
     "protractor": "^3.1.1",
     "underscore": "^1.8.3"
   },
@@ -13,11 +14,14 @@
     "karma-chrome-launcher": "^0.2.2",
     "karma-jasmine": "^0.3.7",
     "protractor": "^3.1.1",
-    "protractor-cucumber-framework": "^0.3.4"
+    "protractor-cucumber-framework": "^0.3.4",
+    "selenium": "^2.20.0"
   },
   "scripts": {
     "test": "protractor ./config/protractor.js",
-    "e2e": "protractor ./config/protractor.js"
+    "e2e": "protractor ./config/protractor.js",
+    "selenium": "webdriver-manager start",
+    "pull": "git pull && npm install && bower install"
   },
   "repository": {
     "type": "git",
