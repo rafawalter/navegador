@@ -1,5 +1,5 @@
 angular.module('navegadorApp')
-  .controller('NavegadorController', function($scope, util, recursoSetores, recursoFinalidades, recursoFinanciamentos) {
+  .controller('NavegadorController', function($scope, util, recursoSetores, recursoFinalidades, recursoFinanciamentos, servicoNavegador) {
 
     $scope.setores = recursoSetores.obter();
   	$scope.finalidades = recursoFinalidades.obter();
@@ -52,62 +52,7 @@ angular.module('navegadorApp')
     }
 
     $scope.filtroAlterado = function() {
-      recalcularFinanciamentosFiltrados();
-    }
-
-
-    function recalcularFinanciamentosFiltrados() {
-      $scope.financiamentosFiltrados = calcularFinanciamentosFiltrados();
-    }
-
-    function calcularFinanciamentosFiltrados() {
-      var filtro = $scope.filtro;
-      var financiamentosFiltrados = $scope.financiamentos.filter( function( financiamento ) {
-  			if ((filtro.somenteMpme) && (!financiamento.mpme)) {
-  				return false;
-  			}
-  			if((filtro.filtrarSetores) && (filtro.setor) && (financiamento.setores.indexOf(filtro.setor)== -1 )){
-  				return false;
-  			}
-  			if((filtro.filtrarFinalidades) && (filtro.finalidade) && (financiamento.finalidades.indexOf(filtro.finalidade)== -1 )){
-  				return false;
-  			}
-  			return true;
-      });
-
-      $scope.setoresComFinanciamentos = calcularSetoresComFinanciamentos(financiamentosFiltrados);
-      $scope.finalidadesComFinanciamentos = calcularFinalidadesComFinanciamentos(financiamentosFiltrados);
-
-      return financiamentosFiltrados;
-    };
-
-    function calcularFinalidadesComFinanciamentos(financiamentos){
-      var arrayFinalidadesComFinanciamentos = [];
-
-      financiamentos.forEach(function(financiamento){
-        financiamento.finalidades.forEach(function(finalidade){
-          if(arrayFinalidadesComFinanciamentos.indexOf(finalidade) == -1){
-            arrayFinalidadesComFinanciamentos.push(finalidade);
-          }
-        });
-      });
-
-      return arrayFinalidadesComFinanciamentos;
-      console.log(arrayFinalidadesComFinanciamentos);
-    }
-
-    function calcularSetoresComFinanciamentos(financiamentos){
-      var arraySetoresComFinanciamentos = [];
-
-      financiamentos.forEach(function(financiamento){
-        financiamento.setores.forEach(function(setor) {
-          if (arraySetoresComFinanciamentos.indexOf(setor) == -1) {
-            arraySetoresComFinanciamentos.push(setor);
-          }
-        });
-      });
-
-      return arraySetoresComFinanciamentos;
+      recalcularFinanciamentosFiltrados($scope.financiamentos, $scope.filtro);
     }
 
     $scope.existemFinanciamentosFiltradosParaSetor = function(nomeSetor) {
@@ -124,5 +69,12 @@ angular.module('navegadorApp')
       return false;
     };
 
-    recalcularFinanciamentosFiltrados();
+    function recalcularFinanciamentosFiltrados(financiamentos, filtro) {
+			var financiamentosFiltrados = servicoNavegador.calcularFinanciamentosFiltrados(financiamentos, filtro);
+      $scope.financiamentosFiltrados = financiamentosFiltrados;
+			$scope.setoresComFinanciamentos = servicoNavegador.calcularSetoresComFinanciamentos(financiamentosFiltrados);
+			$scope.finalidadesComFinanciamentos = servicoNavegador.calcularFinalidadesComFinanciamentos(financiamentosFiltrados);
+    }
+
+    recalcularFinanciamentosFiltrados($scope.financiamentos, $scope.filtro);
   });

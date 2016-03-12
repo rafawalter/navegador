@@ -18,7 +18,7 @@
     "selenium": "^2.20.0"
   },
   "scripts": {
-    "test": "protractor ./config/protractor.js",
+    "test": "protractor ./config/run_specs.js",
     "e2e": "protractor ./config/protractor.js",
     "selenium": "webdriver-manager start",
     "pull": "git pull && npm install && bower install"
