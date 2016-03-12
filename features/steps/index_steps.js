@@ -11,6 +11,7 @@ module.exports = function() {
 
   this.Given(/^que estou na pagina inicial$/, function (callback) {
     browser.get('index.html');
+    console.log('********* title: ', browser.getTitle());
     expect(browser.getTitle()).to.eventually.equal('Financiamentos').and.notify(callback);
   });
 

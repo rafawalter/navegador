@@ -5,8 +5,7 @@
 	// then the tool will prompt for the value.
 	//
 	// "scriptPortletServer": "http://<host>:<port>",
-	"scriptPortletServer": "http://portal.interagir.br/wps/myportal/",
-
+	
 	// Specifies whether to accept or reject self-signed certificates when using HTTPS to
 	// communicate with the Portal server.  The default value of false rejects self-signed
 	// certificates.
@@ -38,7 +37,6 @@
 	// only to provide brief documentation on its proper use
 	//
 	// "portalPassword": "<value>",
-	"portalPassword": "#100senha",
 
 	// Specifies the maximum amount of time, in milliseconds, to wait for the tool to connect
 	// to the Portal server.  The default value is 15000 (15 seconds).  An error will be
