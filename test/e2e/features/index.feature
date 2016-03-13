@@ -1,9 +1,9 @@
 # language: pt
 
 Funcionalidade: Navegar pelos financiamentos
-  Como um empresário
-  Eu quero conhecer as formas de apoio financeiro
-  Para que possa melhorar meu negócio
+    Como um empresário
+    Eu quero conhecer as formas de apoio financeiro
+    Para que possa melhorar meu negócio
 
     @watch
     Cenário: Todas as opções
@@ -19,9 +19,9 @@ Funcionalidade: Navegar pelos financiamentos
       Dado que estou na pagina inicial
       Quando clico no link para MPMEs
       Então sou direcionado para a página "Financiamentos para MPME"
-      E não vejo o filtro "somente MPME"
-      E vejo o filtro "filtrar setores"
-      E vejo o filtro "filtrar finalidades"
+      E não vejo o filtro somente MPME
+      E vejo o filtro filtrar setores
+      E vejo o filtro filtrar finalidades
       E vejo somente os programas que são MPME
 
     Cenário: Navegação pelo setor

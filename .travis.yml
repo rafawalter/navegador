@@ -1,3 +1,7 @@
 language: node_js
 node_js:
-  - "5"
+  - "5.6"
+before_script:
+  - "export DISPLAY=:99.0"
+  - node_modules/protractor/bin/webdriver-manager update --standalone
+  # - node_modules/protractor/bin/webdriver-manager start --standalone 2>&1 &

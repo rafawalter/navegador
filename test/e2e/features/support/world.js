@@ -1,3 +1,4 @@
+/*
 var zombie = require('zombie');
 var should = require('should');
 var hooks  = require('./before.js');
@@ -9,3 +10,4 @@ var WorldConstructor = function WorldConstructor(callback) {
 };
 
 module.exports.World = WorldConstructor;
+*/
