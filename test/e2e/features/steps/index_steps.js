@@ -32,4 +32,23 @@ module.exports = function() {
   this.Given(/^vejo todos os programas$/, function () {
     return expect(page.quantidadeDeFinaciamentosVisiveis()).to.eventually.be.equal(6);
   });
+
+  this.Given(/^vejo diversos setores$/, function () {
+    return expect(page.quantidadeDeSetoresVisiveis()).to.eventually.be.equal(7);
+  });
+
+  this.Given(/^navego para o setor "([^"]*)"$/, function (setor) {
+      return page.clicarEmSetor(setor);
+  });
+
+  this.Given(/^não vejo o filtro "([^"]*)"$/, function (texto) {
+      return expect(page.vejoFiltro(texto)).to.eventually.equal(false);
+  });
+
+  this.Given(/^vejo somente os programas com o setor "([^"]*)"$/, function (arg1,
+  callback) {
+      //   return expect(page.todosOsFinanciamentosPossuemSetor(setor)).to.eventually.equal(true);
+      callback.pending();
+  });
+
 };

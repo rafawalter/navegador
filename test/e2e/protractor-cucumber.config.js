@@ -9,7 +9,7 @@ exports.config = {
     tags: '@watch',
   },
 
-  baseUrl: 'file:///Users/rafaelwalter/Documents/Projetos/navegador/client/',
+  baseUrl: 'http://localhost:8080/client/',
 
   directConnect: false,
   // seleniumAddress: 'http://localhost:4444/wd/hub',
@@ -17,13 +17,14 @@ exports.config = {
   multiCapabilities: [{
 //    browserName: 'chrome'
 //  }, {
-//      browserName: 'firefox'
-//    }, {
-      browserName: 'phantomjs',
-      'phantomjs.binary.path': './node_modules/phantomjs-prebuilt/bin/phantomjs',
-      'phantomjs.cli.args': '--webdriver --webdriver-logfile=webdriver.log',
+      browserName: 'firefox',
+
+//      }, {
+//      browserName: 'phantomjs',
+//      'phantomjs.binary.path': './node_modules/phantomjs-prebuilt/bin/phantomjs',
+//      'phantomjs.cli.args': '--webdriver --webdriver-logfile=webdriver.log',
 //      'phantomjs.cli.args': '--debug=true --webdriver --webdriver-logfile=webdriver.log --webdriver-loglevel=DEBUG',
-      version: '',
-      platform: 'ANY'
+//      version: '',
+//      platform: 'ANY'
   }]
 };

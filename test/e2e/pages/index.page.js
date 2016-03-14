@@ -12,6 +12,22 @@ var IndexPage = function() {
   this.clicarEmTodasAsOpcoes = function() {
     return todasAsOpcoes.click();
   };
+
+  this.quantidadeDeSetoresVisiveis = function() {
+    return element.all(by.repeater('setor in setores')).count();
+  };
+
+  this.clicarEmSetor = function (setor) {
+    var acessarSetor = element(by.id('setores')).element(by.id('setor_'+setor));
+    return acessarSetor.click();
+  };
+
+/*
+  this.todosOsFinanciamentosPossuemSetor = function(setor) {
+    return element,all(by.repeater(setor in financiamento.setores));
+  }
+*/
+
 };
 
 module.exports = IndexPage;
