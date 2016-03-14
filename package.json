@@ -4,17 +4,28 @@
   "main": "index.js",
   "dependencies": {
     "bower": "^1.7.7",
-    "protractor": "^3.1.1",
+    "jasmine": "^2.4.1",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.2.0",
     "cucumber": "^0.9.5",
+    "http-server": "^0.9.0",
+    "phantomjs-prebuilt": "^2.1.5",
     "protractor": "^3.1.1",
     "protractor-cucumber-framework": "^0.3.4"
   },
   "scripts": {
-    "test": "protractor ./config/protractor.js",
-    "e2e": "protractor ./config/protractor.js"
+    "test": "npm run prepare && npm run unit && npm run e2e",
+    "unit": "echo teste unitários pendentes",
+    "e2e": "npm run cucumber",
+    "cucumber": "protractor ./test/e2e/protractor-cucumber.config.js",
+    "webdriver-update": "webdriver-manager update",
+    "selenium": "webdriver-manager start --standalone",
+    "pull": "git pull && npm run prepare",
+    "prepare": "npm install && bower install && npm run webdriver-update && npm start",
+    "start": "start node ./node_modules/http-server/bin/http-server"
   },
   "repository": {
     "type": "git",

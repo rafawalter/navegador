@@ -28,6 +28,7 @@
     <script src="main.js"></script>
     <script src="util/meus-utilitarios.js"></script>
     <script src="navegador/navegador-controller.js"></script>
+    <script src="navegador/navegador-servico.js"></script>
     <script src="financiamento/financiamento-resource.js"></script>
     <script src="setor/setor-resource.js"></script>
     <script src="finalidade/finalidade-resource.js"></script>
@@ -41,7 +42,7 @@
 
       <div id='mpme' ng-hide='{{ocultarFiltroMpme}}'>
         <label>
-          <input type="checkbox" ng-model="filtro.somenteMpme" ng-change='filtroAlterado()'/>
+          <input id='filtrarMpme' type="checkbox" ng-model="filtro.somenteMpme" ng-change='filtroAlterado()'/>
           somente MPME
         </label>
         <p>Melhores opções para Micro, Pequenas e Médias Empresas (faturamento até R$90 milhões)</p>
@@ -138,8 +139,10 @@
 
             iniciarDataTable = function(locator) {
               jQuery(locator).DataTable({
-                responsive: true, "language": {
+                responsive: true,
+                "language": {
                     "url": "http://cdn.datatables.net/plug-ins/1.10.11/i18n/Portuguese-Brasil.json"
+                    //"url": "../bower-components/datatables-i18n/i18n/pt-BR.json"
                 }
               });
             };

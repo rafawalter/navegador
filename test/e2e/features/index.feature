@@ -1,9 +1,9 @@
 # language: pt
 
 Funcionalidade: Navegar pelos financiamentos
-  Como um empresário
-  Eu quero conhecer as formas de apoio financeiro
-  Para que possa melhorar meu negócio
+    Como um empresário
+    Eu quero conhecer as formas de apoio financeiro
+    Para que possa melhorar meu negócio
 
     @watch
     Cenário: Todas as opções
@@ -24,6 +24,7 @@ Funcionalidade: Navegar pelos financiamentos
       E vejo o filtro "filtrar finalidades"
       E vejo somente os programas que são MPME
 
+    @watch
     Cenário: Navegação pelo setor
       Dado que estou na pagina inicial
       E vejo diversos setores
