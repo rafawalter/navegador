@@ -34,6 +34,17 @@ var NavegadorPage = function() {
       return _.uniq(valores);
     });
   };
+
+  this.clicarEmFinanciamento = function (financiamento){
+    var acessarFinanciamento = element.all(by.repeater('financiamento in financiamentosFiltrados')).all(by.linkText(financiamento));
+    return acessarFinanciamento.click();
+  };
+
+  this.clicarEmSetor = function (setor) {
+    var acessarSetor = element(by.id('setores')).all(by.tagName('input')).all(by.id('setor_'+setor));
+    return acessarSetor.click();
+  };
+
 };
 
 module.exports = NavegadorPage;

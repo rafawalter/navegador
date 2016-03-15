@@ -33,7 +33,6 @@ Funcionalidade: Navegar pelos financiamentos
       E vejo o filtro "filtrar finalidades"
       E vejo somente os financiamentos com o setor "Agropecuária"
 
-    @watch
     Cenário: Navegação pela finalidade
       Dado que estou na pagina inicial
       E vejo diversas finalidades

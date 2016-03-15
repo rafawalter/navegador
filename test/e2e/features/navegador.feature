@@ -11,9 +11,10 @@ Funcionalidade: Navegar pelos financiamentos
       Quando clico no checkbox "somente MPME"
       Então o contador de resultados indica a quantidade correta
 
+    @watch
     Cenário: Navegar para um financiamento
       Dado que estou na pagina do navegador
-      Quando clico no setor "Cerealistas"
+      Quando clico no financiamento "Cerealistas"
       Então vejo a página "Cerealistas"
 
     Cenário: Apenas MPME
