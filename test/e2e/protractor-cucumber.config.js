@@ -6,7 +6,7 @@ exports.config = {
   cucumberOpts: {
     require: ['./pages/**/*.js','./features/**/*.js'],
     format: 'pretty',
-  tags: '@watch',
+//    tags: '@watch',
   },
 
   baseUrl: 'http://localhost:8080/client/',

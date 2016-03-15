@@ -46,11 +46,11 @@ var NavegadorPage = function() {
   };
 
   this.valorContadorDeFinanciamentos = function() {
-    return element(by.id('contador-de-financiamentos')).getText();
+    return element(by.binding('financiamentosFiltrados.length')).getText();
   };
 
   this.clicarEmMpme = function() {
-    var linkMpme = element(by.id('mpme')).all(by.tagName('input')).all(by.id('filtrarMpme'));
+    var linkMpme = element(by.model('filtro.somenteMpme'));
     return linkMpme.click();
   };
 
