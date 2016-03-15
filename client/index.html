@@ -55,7 +55,7 @@
           <h2>Finalidades</h2>
           <ul>
             <li ng-repeat='finalidade in finalidades'>
-              <a class='btn btn-primary finalidade' href='navegador.html?finalidade={{finalidade.nome}}'>{{finalidade.nome}}</a>
+              <a id='finalidade_{{finalidade.nome}}' class='btn btn-primary finalidade' href='navegador.html?finalidade={{finalidade.nome}}'>{{finalidade.nome}}</a>
             </li>
           </ul>
         </div>

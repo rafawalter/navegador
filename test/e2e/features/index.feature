@@ -12,9 +12,8 @@ Funcionalidade: Navegar pelos financiamentos
       E vejo o filtro "somente MPME"
       E vejo o filtro "filtrar setores"
       E vejo o filtro "filtrar finalidades"
-      E vejo todos os programas
+      E vejo todos os financiamentos
 
-      @watch
     Cenário: Navegação por MPME
       Dado que estou na pagina inicial
       Quando clico no link para MPMEs
@@ -22,7 +21,7 @@ Funcionalidade: Navegar pelos financiamentos
       E não vejo o filtro "somente MPME"
       E vejo o filtro "filtrar setores"
       E vejo o filtro "filtrar finalidades"
-      E vejo somente os programas que são MPME
+      E vejo somente os financiamentos que são MPME
 
     Cenário: Navegação pelo setor
       Dado que estou na pagina inicial
@@ -32,14 +31,15 @@ Funcionalidade: Navegar pelos financiamentos
       E vejo o filtro "somente MPME"
       E não vejo o filtro "filtrar setores"
       E vejo o filtro "filtrar finalidades"
-      E vejo somente os programas com o setor "Agropecuária"
+      E vejo somente os financiamentos com o setor "Agropecuária"
 
+    @watch
     Cenário: Navegação pela finalidade
       Dado que estou na pagina inicial
       E vejo diversas finalidades
       Quando navego para a finalidade "Crédito rural"
       Então sou direcionado para a página "Financiamentos para Crédito rural"
-      E vejo o filtro "somenteMPME"
-      E não vejo o filtro "filtrar setores"
+      E vejo o filtro "somente MPME"
+      E vejo o filtro "filtrar setores"
       E não vejo o filtro "filtrar finalidades"
-      E vejo somente os programas com a finalidade "Crédito rural"
+      E vejo somente os financiamentos com a finalidade "Crédito rural"

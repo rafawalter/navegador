@@ -17,7 +17,7 @@
     "protractor-cucumber-framework": "^0.3.4"
   },
   "scripts": {
-    "test": "npm run prepare && npm run unit && npm run e2e",
+    "test": "npm run unit && npm run e2e",
     "unit": "echo teste unitários pendentes",
     "e2e": "npm run cucumber",
     "cucumber": "protractor ./test/e2e/protractor-cucumber.config.js",

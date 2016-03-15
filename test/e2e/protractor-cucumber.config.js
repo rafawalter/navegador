@@ -6,7 +6,7 @@ exports.config = {
   cucumberOpts: {
     require: ['./pages/**/*.js','./features/**/*.js'],
     format: 'pretty',
-    tags: '@watch',
+  //  tags: '@watch',
   },
 
   baseUrl: 'http://localhost:8080/client/',
@@ -17,14 +17,14 @@ exports.config = {
   multiCapabilities: [{
 //    browserName: 'chrome'
 //  }, {
-//      browserName: 'firefox',
+      browserName: 'firefox',
 
 //      }, {
-      browserName: 'phantomjs',
+/*      browserName: 'phantomjs',
       'phantomjs.binary.path': './node_modules/phantomjs-prebuilt/bin/phantomjs',
       'phantomjs.cli.args': '--webdriver --webdriver-logfile=webdriver.log',
       'phantomjs.cli.args': '--debug=true --webdriver --webdriver-logfile=webdriver.log --webdriver-loglevel=DEBUG',
       version: '',
-      platform: 'ANY'
+      platform: 'ANY' */
   }]
 };

@@ -19,7 +19,11 @@ var NavegadorPage = function() {
     return element.all(by.cssContainingText('.setor',setor)).count();
   };
 
-  this.quantidadeDeFinaciamentosVisiveis = function() {
+  this.quantidadeDeFinanciamentosComFinalidade = function(finalidade) {
+    return element.all(by.cssContainingText('.finalidade',finalidade)).count();
+  };
+
+  this.quantidadeDeFinanciamentosVisiveis = function() {
     return financiamentosFiltrados.count();
   };
 

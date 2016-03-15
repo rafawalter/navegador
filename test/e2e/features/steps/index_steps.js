@@ -12,7 +12,7 @@ module.exports = function() {
   this.Given(/^que estou na pagina inicial$/, function() {
     page = new IndexPage();
     page.get();
-    return expect(page.title()).to.eventually.equal('Financiamentos');
+    return expect(page.title()).to.eventually.eql('Financiamentos');
   });
 
   this.Given(/^clico no link para ver todas as opções$/, function() {
@@ -22,32 +22,30 @@ module.exports = function() {
   });
 
   this.Given(/^sou direcionado para a página "([^"]*)"$/, function (titulo) {
-    return expect(page.title()).to.eventually.equal(titulo).then( function() {
+    return expect(page.title()).to.eventually.eql(titulo).then( function() {
       page = new NavegadorPage();
     });
   });
 
-  this.Given(/^vejo todos os programas$/, function () {
-    return expect(page.quantidadeDeFinanciamentosVisiveis()).to.eventually.be.equal(6);
+  this.Given(/^vejo todos os financiamentos$/, function () {
+    return expect(page.quantidadeDeFinanciamentosVisiveis()).to.eventually.be.eql(6);
   });
 
   this.Given(/^vejo diversos setores$/, function () {
-    return expect(page.quantidadeDeSetoresVisiveis()).to.eventually.be.equal(7);
+    return expect(page.quantidadeDeSetoresVisiveis()).to.eventually.be.eql(7);
   });
 
   this.Given(/^navego para o setor "([^"]*)"$/, function (setor) {
       return page.clicarEmSetor(setor);
   });
 
-  this.Given(/^vejo somente os programas com o setor "([^"]*)"$/, function (setor) {
+  this.Given(/^vejo somente os financiamentos com o setor "([^"]*)"$/, function (setor) {
     return page.quantidadeDeFinanciamentosVisiveis().then(function(quantidade) {
-      return expect(page.quantidadeDeFinanciamentosComSetor(setor)).to.eventually.be.equal(quantidade);
+      return expect(page.quantidadeDeFinanciamentosComSetor(setor)).to.eventually.be.eql(quantidade);
     });
   });
 
-  this.Given(/^vejo todos os programas$/, function() {
-    return expect(page.quantidadeDeFinaciamentosVisiveis()).to.eventually.be.equal(6);
-  });
+
 
   this.Given(/^clico no link para MPMEs$/, function() {
     promise = page.clicarEmMpme();
@@ -64,9 +62,22 @@ module.exports = function() {
     return expect(page.vejoFiltro(texto)).to.eventually.be.false;
   });
 
-  this.Given(/^vejo somente os programas que são MPME$/, function() {
-    return expect(page.valoresVisiveisDaColuna('MPME?')).to.eventually.be.equal(['true']);
+  this.Given(/^vejo somente os financiamentos que são MPME$/, function() {
+    return expect(page.valoresVisiveisDaColuna('MPME?')).to.eventually.be.eql(['true']);
+  });
 
+  this.Given(/^vejo diversas finalidades$/, function () {
+    return expect(page.quantidadeDeFinalidadesVisiveis()).to.eventually.be.eql(17);
+  });
+
+  this.Given(/^navego para a finalidade "([^"]*)"$/, function (finalidade) {
+      return page.clicarEmFinalidade(finalidade);
+  });
+
+  this.Given(/^vejo somente os financiamentos com a finalidade "([^"]*)"$/, function (finalidade) {
+    return page.quantidadeDeFinanciamentosVisiveis().then(function(quantidade) {
+      return expect(page.quantidadeDeFinanciamentosComFinalidade(finalidade)).to.eventually.be.eql(quantidade);
+    });
   });
 
 };
