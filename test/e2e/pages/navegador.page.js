@@ -27,11 +27,21 @@ var NavegadorPage = function() {
     return financiamentosFiltrados.count();
   };
 
-  this.valoresVisiveisDaColuna = function(nomeColuna) {
+  this.valoresVisiveisDeMpme = function() {
     return element.all(by.binding('financiamento.mpme')).map(function(elm,index) {
       return elm.getText();
     }).then(function(valores) {
       return _.uniq(valores);
+    });
+  };
+
+  this.valoresVisiveisDeSetor = function() {
+    return element.all(by.repeater('setor in financiamento.setores'))
+      .map(function(setoresDoFinanciamento,index) {
+          return setoresDoFinanciamento.getText();
+      }).then(function(valores) {
+        console.log(valores);
+        return _.flatten(_.uniq(valores));
     });
   };
 

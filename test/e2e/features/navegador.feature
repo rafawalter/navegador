@@ -17,7 +17,6 @@ Funcionalidade: Navegar pelos financiamentos
         Então o contador de resultados indica a quantidade correta
 
 
-        @watch
     Cenário: Apenas MPME
       Dado que estou na pagina do navegador
       E vejo financiamentos que são e outros que não são para MPME
@@ -26,6 +25,7 @@ Funcionalidade: Navegar pelos financiamentos
       Quando clico novamente no checkbox "somente MPME"
       Então vejo financiamentos que são e outros que não são para MPME
 
+      @watch
     Cenário: Filtrar setores
       Dado que estou na pagina do navegador
       E vejo financiamentos de diversos setores

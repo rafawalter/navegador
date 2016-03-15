@@ -38,20 +38,19 @@ module.exports = function() {
   });
 
   this.Given(/^vejo financiamentos que são e outros que não são para MPME$/, function () {
-    return expect(page.valoresVisiveisDaColuna()).to.eventually.have.members(['true','false']);
+    return expect(page.valoresVisiveisDeMpme()).to.eventually.have.members(['true','false']);
   });
 
   this.Given(/^vejo apenas financiamentos que são para MPME$/, function () {
-    return expect(page.valoresVisiveisDaColuna()).to.eventually.be.eql(['true']);
+    return expect(page.valoresVisiveisDeMpme()).to.eventually.be.eql(['true']);
   });
 
   this.Given(/^clico novamente no checkbox "([^"]*)"$/, function (texto) {
     return page.clicarEmMpme();
   });
 
-  this.Given(/^vejo financiamentos de diversos setores$/, function (callback) {
-    // Write code here that turns the phrase above into concrete actions
-    callback.pending();
+  this.Given(/^vejo financiamentos de diversos setores$/, function () {
+    return expect(page.valoresVisiveisDeSetor()).to.eventually.have.members(['Agroindústria']);
   });
 
   this.Given(/^vejo "([^"]*)" desmarcado$/, function (arg1, callback) {
