@@ -1,5 +1,7 @@
 var IndexPage = function() {
-  var todasAsOpcoes = element(by.id('todas')).element(by.css('a'));
+
+  var linkTodasAsOpcoes = element(by.id('todas')).element(by.css('a'));
+  var linkMpme = element(by.id('mpme')).element(by.css('a'));
 
   this.get = function() {
     browser.get('index.html');
@@ -10,7 +12,7 @@ var IndexPage = function() {
   };
 
   this.clicarEmTodasAsOpcoes = function() {
-    return todasAsOpcoes.click();
+    return linkTodasAsOpcoes.click();
   };
 
   this.quantidadeDeSetoresVisiveis = function() {
@@ -22,11 +24,10 @@ var IndexPage = function() {
     return acessarSetor.click();
   };
 
-/*
-  this.todosOsFinanciamentosPossuemSetor = function(setor) {
-    return element,all(by.repeater(setor in financiamento.setores));
-  }
-*/
+
+  this.clicarEmMpme = function() {
+    return linkMpme.click();
+  };
 
 };
 

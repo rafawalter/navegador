@@ -25,7 +25,7 @@
     "selenium": "webdriver-manager start --standalone",
     "pull": "git pull && npm run prepare",
     "prepare": "npm install && bower install && npm run webdriver-update && npm start",
-    "start": "start node ./node_modules/http-server/bin/http-server"
+    "start": "node ./node_modules/http-server/bin/http-server"
   },
   "repository": {
     "type": "git",

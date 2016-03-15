@@ -9,24 +9,22 @@ module.exports = function() {
   var NavegadorPage = new require('../../pages/navegador.page.js');
   var page;
 
-  this.Given(/^que estou na pagina inicial$/, function () {
+  this.Given(/^que estou na pagina inicial$/, function() {
     page = new IndexPage();
     page.get();
     return expect(page.title()).to.eventually.equal('Financiamentos');
   });
 
-  this.Given(/^clico no link para ver todas as opções$/, function () {
-    return page.clicarEmTodasAsOpcoes();
+  this.Given(/^clico no link para ver todas as opções$/, function() {
+    promise = page.clicarEmTodasAsOpcoes();
+    page = new NavegadorPage();
+    return promise;
   });
 
   this.Given(/^sou direcionado para a página "([^"]*)"$/, function (titulo) {
     return expect(page.title()).to.eventually.equal(titulo).then( function() {
       page = new NavegadorPage();
     });
-  });
-
-  this.Given(/^vejo o filtro "([^"]*)"$/, function (texto) {
-    return expect(page.vejoFiltro(texto)).to.eventually.be.true;
   });
 
   this.Given(/^vejo todos os programas$/, function () {
@@ -41,14 +39,34 @@ module.exports = function() {
       return page.clicarEmSetor(setor);
   });
 
-  this.Given(/^não vejo o filtro "([^"]*)"$/, function (texto) {
-      return expect(page.vejoFiltro(texto)).to.eventually.be.false;
-  });
-
   this.Given(/^vejo somente os programas com o setor "([^"]*)"$/, function (setor) {
     return page.quantidadeDeFinanciamentosVisiveis().then(function(quantidade) {
       return expect(page.quantidadeDeFinanciamentosComSetor(setor)).to.eventually.be.equal(quantidade);
     });
+  });
+
+  this.Given(/^vejo todos os programas$/, function() {
+    return expect(page.quantidadeDeFinaciamentosVisiveis()).to.eventually.be.equal(6);
+  });
+
+  this.Given(/^clico no link para MPMEs$/, function() {
+    promise = page.clicarEmMpme();
+    page = new NavegadorPage();
+    return promise;
+  });
+
+  this.Given(/^vejo o filtro "([^"]*)"$/, function(texto) {
+    return expect(page.vejoFiltro(texto)).to.eventually.be.true;
+  });
+
+
+  this.Given(/^não vejo o filtro "([^"]*)"$/, function(texto) {
+    return expect(page.vejoFiltro(texto)).to.eventually.be.false;
+  });
+
+  this.Given(/^vejo somente os programas que são MPME$/, function() {
+    return expect(page.valoresVisiveisDaColuna('MPME?')).to.eventually.be.equal(['true']);
+
   });
 
 };
