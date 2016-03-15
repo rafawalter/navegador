@@ -45,6 +45,16 @@ var NavegadorPage = function() {
     return acessarSetor.click();
   };
 
+  this.valorContadorDeFinanciamentos = function() {
+    return element(by.id('contador-de-financiamentos')).getText();
+  };
+
+  this.clicarEmMpme = function() {
+    var linkMpme = element(by.id('mpme')).all(by.tagName('input')).all(by.id('filtrarMpme'));
+    return linkMpme.click();
+  };
+
+
 };
 
 module.exports = NavegadorPage;

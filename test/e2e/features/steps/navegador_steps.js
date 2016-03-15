@@ -26,4 +26,60 @@ module.exports = function() {
     });
   });
 
+
+  this.Given(/^o contador de resultados indica a quantidade correta$/, function () {
+    return page.valorContadorDeFinanciamentos().then(function(contador) {
+      return expect(page.quantidadeDeFinanciamentosVisiveis()).eventually.be.eql(parseInt(contador));
+    });
+  });
+
+  this.Given(/^clico no checkbox "([^"]*)"$/, function (mpme) {
+    return page.clicarEmMpme();
+  });
+
+  this.Given(/^vejo financiamentos que são e outros que não são para MPME$/, function (callback) {
+    // Write code here that turns the phrase above into concrete actions
+    callback.pending();
+  });
+
+  this.Given(/^vejo apenas financiamentos que são para MPME$/, function (callback) {
+    // Write code here that turns the phrase above into concrete actions
+    callback.pending();
+  });
+
+  this.Given(/^clico novamente no checkbox "([^"]*)"$/, function (arg1, callback) {
+    // Write code here that turns the phrase above into concrete actions
+    callback.pending();
+  });
+
+  this.Given(/^vejo financiamentos de diversos setores$/, function (callback) {
+    // Write code here that turns the phrase above into concrete actions
+    callback.pending();
+  });
+
+  this.Given(/^vejo "([^"]*)" desmarcado$/, function (arg1, callback) {
+    // Write code here that turns the phrase above into concrete actions
+    callback.pending();
+  });
+
+  this.Given(/^clico no filtro do setor "([^"]*)"$/, function (arg1, callback) {
+    // Write code here that turns the phrase above into concrete actions
+    callback.pending();
+  });
+
+  this.Given(/^vejo apenas financiamentos disponíveis para o setor "([^"]*)"$/, function (arg1, callback) {
+    // Write code here that turns the phrase above into concrete actions
+    callback.pending();
+  });
+
+  this.Given(/^vejo "([^"]*)" marcado$/, function (arg1, callback) {
+    // Write code here that turns the phrase above into concrete actions
+    callback.pending();
+  });
+
+  this.Given(/^vejo novamente financiamentos de diversos setores$/, function (callback) {
+    // Write code here that turns the phrase above into concrete actions
+    callback.pending();
+  });
+
 };
