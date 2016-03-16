@@ -55,7 +55,7 @@ module.exports = function() {
 
   this.Given(/^vejo financiamentos que não são para o setor "([^"]*)"$/, function (setor) {
       return page.quantidadeDeFinanciamentosParaSetor(setor).then(function(quantidadeDeFinanciamentosComSetor) {
-        return expect(page.quantidadeDeFinanciamentosVisiveis()).to.not.eventually.be.eql(quantidadeDeFinanciamentosComSetor);
+        return expect(page.quantidadeDeFinanciamentosVisiveis()).to.eventually.not.be.eql(quantidadeDeFinanciamentosComSetor);
       });
   });
 
@@ -63,8 +63,8 @@ module.exports = function() {
     return expect(page.filtroDeSetoresHabilitado()).to.eventually.be.false;
   });
 
-  this.Given(/^clico no filtro do setor "([^"]*)"$/, function (setor) {
-    return page.clicarEmSetor(setor);
+  this.Given(/^filtro pelo setor "([^"]*)"$/, function (setor) {
+    return page.filtrarPeloSetor(setor);
   });
 
   this.Given(/^vejo apenas financiamentos disponíveis para o setor "([^"]*)"$/, function (setor) {
@@ -80,4 +80,37 @@ module.exports = function() {
   this.Given(/^desmarco o filtro de setores$/, function () {
     return page.clicarNoFiltroDeSetores();
   });
+
+  this.Given(/^vejo financiamentos para a finalidade "([^"]*)"$/, function (finalidade) {
+    return expect(page.financiamentosParaFinalidade(finalidade)).to.exist;
+  });
+
+  this.Given(/^vejo financiamentos que não são para a finalidade "([^"]*)"$/, function (finalidade) {
+    return page.quantidadeDeFinanciamentosParaFinalidade(finalidade).then(function(quantidadeDeFinanciamentosComFinalidade) {
+      return expect(page.quantidadeDeFinanciamentosVisiveis()).to.eventually.not.be.eql(quantidadeDeFinanciamentosComFinalidade);
+    });
+  });
+
+  this.Given(/^vejo o filtro de finalidades desmarcado$/, function () {
+    return expect(page.filtroDeFinalidadesHabilitado()).to.eventually.be.false;
+  });
+
+  this.Given(/^filtro pela finalidade "([^"]*)"$/, function (finalidade) {
+    return expect(page.filtrarPelaFinalidade(finalidade));
+  });
+
+  this.Given(/^vejo apenas financiamentos disponíveis para a finalidade "([^"]*)"$/, function (finalidade) {
+    return page.quantidadeDeFinanciamentosParaFinalidade(finalidade).then(function (quantidadeDeFinanciamentosComFinalidade){
+      return expect(page.quantidadeDeFinanciamentosVisiveis()).to.eventually.be.eql(quantidadeDeFinanciamentosComFinalidade);
+    });
+  });
+
+  this.Given(/^vejo o filtro de finalidades marcado$/, function () {
+    return expect(page.filtroDeFinalidadesHabilitado()).to.eventually.be.true;
+  });
+
+  this.Given(/^desmarco o filtro de finalidades$/, function () {
+    return page.clicarNoFiltroDeFinalidades();
+  });
+
 };

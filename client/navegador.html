@@ -40,7 +40,7 @@
     <div class='container'>
       <h1>{{pageTitle}}</h1>
 
-      <div id='mpme' ng-hide='{{ocultarFiltroMpme}}'>
+      <div id='filtroMpme' ng-hide='{{ocultarFiltroMpme}}'>
         <label>
           <input id='filtrarMpme' type="checkbox" ng-model="filtro.somenteMpme" ng-change='filtroAlterado()'/>
           somente MPME
@@ -48,7 +48,7 @@
         <p>Melhores opções para Micro, Pequenas e Médias Empresas (faturamento até R$90 milhões)</p>
       </div>
 
-      <div id="setores" ng-hide='{{ocultarFiltroSetores}}'>
+      <div id="filtroSetores" ng-hide='{{ocultarFiltroSetores}}'>
         <label class="setores">
           <input id="filtrarSetores" type="checkbox" ng-model="filtro.filtrarSetores" ng-change='filtroAlterado()' />
           filtrar setores
@@ -70,14 +70,14 @@
         </div>
       </div>
 
-      <div id="finalidades" ng-hide='{{ocultarFiltroFinalidades}}'>
+      <div id="filtroFinalidades" ng-hide='{{ocultarFiltroFinalidades}}'>
         <label>
           <input id='filtrarFinalidades' type="checkbox" ng-model="filtro.filtrarFinalidades" ng-change='filtroAlterado()'/>
           filtrar finalidades
         </label>
         <ul class="unstyled">
           <li ng-repeat="finalidade in finalidades">
-            <input type="radio" name="finalidade" value="{{finalidade.nome}}" ng-change='finalidadeAlterada()' ng-model="filtro.finalidade"  ng-disabled='!existemFinanciamentosFiltradosParaFinalidade(finalidade.nome)'>
+            <input class="finalidade" type="radio" name="finalidade" value="{{finalidade.nome}}" ng-change='finalidadeAlterada()' ng-model="filtro.finalidade"  ng-disabled='!existemFinanciamentosFiltradosParaFinalidade(finalidade.nome)'>
               <label class="radioButton">
                 {{finalidade.nome}}
               </label>
@@ -120,14 +120,14 @@
                 <a href='financiamento.html?id={{financiamento.id}}'>{{financiamento.linhasProg}}</a>
               </td>
               <td class='mpme'>{{financiamento.mpme}}</td>
-              <td class='setores'  ng-repeat="setor in financiamento.setores">
-                <span class='setor' id='financiamentoSetor_{{setor}}'>
-                  {{setor}}{{$last ? '' : ', '}}
+              <td class='setores'>
+                <span ng-repeat="setor in financiamento.setores">
+                  <span class='setor'>{{setor}}</span>{{$last ? '' : ', '}}
                 </span>
               </td>
-              <td>
-                <span class='finalidade' ng-repeat="finalidade in financiamento.finalidades">
-                  {{finalidade}}{{$last ? '' : ', '}}
+              <td class='finalidades'>
+                <span ng-repeat="finalidade in financiamento.finalidades">
+                    <span class='finalidade'>{{finalidade}}</span>{{$last ? '' : ', '}}
                 </span>
               </td>
             </tr>

@@ -2,7 +2,14 @@ var NavegadorPage = function() {
   var _ = require('underscore');
 
   var financiamentosFiltrados = element.all(by.repeater('financiamento in financiamentosFiltrados'));
+
+  var filtroSomenteMpme = element(by.model('filtro.somenteMpme'));
+
   var filtroDeSetores = element(by.model('filtro.filtrarSetores'));
+  var setoresDoFiltro = element(by.id('filtroSetores')).all(by.repeater("setor in setores"));
+
+  var filtroDeFinalidades = element(by.model('filtro.filtrarFinalidades'));
+  var finalidadesDoFiltro = element(by.id('filtroFinalidades')).all(by.repeater("finalidade in finalidades"));
 
   this.get = function() {
     browser.get('navegador.html');
@@ -41,22 +48,16 @@ var NavegadorPage = function() {
     return acessarFinanciamento.click();
   };
 
-  this.clicarEmSetor = function (setor) {
-    var acessarSetor = element(by.id('setor_'+setor)).all(by.model("filtro.setor"));
-    return acessarSetor.click();
-  };
-
   this.valorContadorDeFinanciamentos = function() {
     return element(by.binding('financiamentosFiltrados.length')).getText();
   };
 
   this.clicarEmMpme = function() {
-    var linkMpme = element(by.model('filtro.somenteMpme'));
-    return linkMpme.click();
+    return filtroSomenteMpme.click();
   };
 
   this.financiamentosParaSetor = function(setor) {
-    return financiamentosFiltrados.all(by.repeater('setor in financiamento.setores')).all(by.id('financiamentoSetor_'+setor));
+    return financiamentosFiltrados.all(by.repeater('setor in financiamento.setores')).all(by.cssContainingText('.setor', setor));
   };
 
   this.quantidadeDeFinanciamentosParaSetor = function(setor) {
@@ -67,10 +68,45 @@ var NavegadorPage = function() {
     return filtroDeSetores.isSelected();
   };
 
+  this.filtroDeFinalidadesHabilitado = function(filtro) {
+    return filtroDeFinalidades.isSelected();
+  };
+
   this.clicarNoFiltroDeSetores = function() {
     filtroDeSetores.click();
   };
 
+  this.clicarNoFiltroDeFinalidades = function() {
+    filtroDeFinalidades.click();
+  }
+
+  this.financiamentosParaFinalidade = function(finalidade) {
+    return financiamentosFiltrados.all(by.repeater('finalidade in financiamento.finalidades')).all(by.cssContainingText('.finalidade', finalidade));
+  };
+
+  this.quantidadeDeFinanciamentosParaFinalidade = function(finalidade) {
+    return this.financiamentosParaFinalidade(finalidade).count();
+  };
+
+  this.filtrarPelaFinalidade = function(finalidade) {
+    return finalidadesDoFiltro.filter(function(elem, index) {
+        return elem.getText().then(function(text) {
+          return text == finalidade;
+        });
+      })
+      .all(by.tagName('input'))
+      .click();
+  };
+
+  this.filtrarPeloSetor = function(setor) {
+    return setoresDoFiltro.filter(function(elem, index) {
+        return elem.getText().then(function(text) {
+          return text == setor;
+        });
+      })
+      .all(by.tagName('input'))
+      .click();
+  };
 };
 
 module.exports = NavegadorPage;

@@ -31,9 +31,21 @@ Funcionalidade: Navegar pelos financiamentos
       E vejo financiamentos para o setor "Agropecuária"
       E vejo financiamentos que não são para o setor "Agropecuária"
       E vejo o filtro de setores desmarcado
-      Quando clico no filtro do setor "Agropecuária"
+      Quando filtro pelo setor "Agropecuária"
       Então vejo apenas financiamentos disponíveis para o setor "Agropecuária"
       E vejo o filtro de setores marcado
       Quando desmarco o filtro de setores
       Então vejo financiamentos para o setor "Agropecuária"
       E vejo financiamentos que não são para o setor "Agropecuária"
+
+    Cenário: Filtrar finalidades
+      Dado que estou na pagina do navegador
+      E vejo financiamentos para a finalidade "Crédito rural"
+      E vejo financiamentos que não são para a finalidade "Crédito rural"
+      E vejo o filtro de finalidades desmarcado
+      Quando filtro pela finalidade "Crédito rural"
+      Então vejo apenas financiamentos disponíveis para a finalidade "Crédito rural"
+      E vejo o filtro de finalidades marcado
+      Quando desmarco o filtro de finalidades
+      Então vejo financiamentos para a finalidade "Crédito rural"
+      E vejo financiamentos que não são para a finalidade "Crédito rural"
