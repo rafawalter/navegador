@@ -54,13 +54,13 @@ module.exports = function() {
   });
 
   this.Given(/^vejo financiamentos que não são para o setor "([^"]*)"$/, function (setor) {
-      return page.financiamentosParaSetor(setor).then(function(financiamentosSetor) {
-        return expect(page.quantidadeDeFinanciamentosVisiveis()).not.eventually.be.eql(financiamentosSetor.count);
+      return page.quantidadeDeFinanciamentosParaSetor(setor).then(function(quantidadeDeFinanciamentosComSetor) {
+        return expect(page.quantidadeDeFinanciamentosVisiveis()).to.not.eventually.be.eql(quantidadeDeFinanciamentosComSetor);
       });
   });
 
-  this.Given(/^vejo "([^"]*)" desmarcado$/, function (filtro) {
-    return expect(page.valorCheckbox(filtro)).to.eventually.be.false;
+  this.Given(/^vejo o filtro de setores desmarcado$/, function () {
+    return expect(page.filtroDeSetoresHabilitado()).to.eventually.be.false;
   });
 
   this.Given(/^clico no filtro do setor "([^"]*)"$/, function (setor) {
@@ -68,14 +68,16 @@ module.exports = function() {
   });
 
   this.Given(/^vejo apenas financiamentos disponíveis para o setor "([^"]*)"$/, function (setor) {
-    return page.financiamentosParaSetor(setor).then(function (financiamentosSetor){
-      return expect(page.quantidadeDeFinanciamentosVisiveis()).to.eventually.be.eql(financiamentosSetor.count);
+    return page.quantidadeDeFinanciamentosParaSetor(setor).then(function (quantidadeDeFinanciamentosComSetor){
+      return expect(page.quantidadeDeFinanciamentosVisiveis()).to.eventually.be.eql(quantidadeDeFinanciamentosComSetor);
     });
   });
 
-  this.Given(/^vejo "([^"]*)" marcado$/, function (arg1, callback) {
-    // Write code here that turns the phrase above into concrete actions
-    callback.pending();
+  this.Given(/^vejo o filtro de setores marcado$/, function () {
+    return expect(page.filtroDeSetoresHabilitado()).to.eventually.be.true;
   });
 
+  this.Given(/^desmarco o filtro de setores$/, function () {
+    return page.clicarNoFiltroDeSetores();
+  });
 };

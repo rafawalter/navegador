@@ -2,6 +2,7 @@ var NavegadorPage = function() {
   var _ = require('underscore');
 
   var financiamentosFiltrados = element.all(by.repeater('financiamento in financiamentosFiltrados'));
+  var filtroDeSetores = element(by.model('filtro.filtrarSetores'));
 
   this.get = function() {
     browser.get('navegador.html');
@@ -36,7 +37,7 @@ var NavegadorPage = function() {
   };
 
   this.clicarEmFinanciamento = function (financiamento){
-    var acessarFinanciamento = element.all(by.repeater('financiamento in financiamentosFiltrados')).all(by.linkText(financiamento));
+    var acessarFinanciamento = financiamentosFiltrados.all(by.linkText(financiamento));
     return acessarFinanciamento.click();
   };
 
@@ -55,11 +56,19 @@ var NavegadorPage = function() {
   };
 
   this.financiamentosParaSetor = function(setor) {
-    return element.all(by.repeater('financiamento in financiamentos')).all(by.repeater('setor in financiamento.setores')).all(by.id('financiamentoSetor_'+setor));
+    return financiamentosFiltrados.all(by.repeater('setor in financiamento.setores')).all(by.id('financiamentoSetor_'+setor));
   };
 
-  this.valorCheckbox = function(filtro) {
-    return element(by.cssContainingText('.setores',filtro)).isSelected();
+  this.quantidadeDeFinanciamentosParaSetor = function(setor) {
+    return this.financiamentosParaSetor(setor).count();
+  };
+
+  this.filtroDeSetoresHabilitado = function(filtro) {
+    return filtroDeSetores.isSelected();
+  };
+
+  this.clicarNoFiltroDeSetores = function() {
+    filtroDeSetores.click();
   };
 
 };

@@ -63,7 +63,7 @@ module.exports = function() {
   });
 
   this.Given(/^vejo somente os financiamentos que são MPME$/, function() {
-    return expect(page.valoresVisiveisDaColuna('MPME?')).to.eventually.be.eql(['true']);
+    return expect(page.valoresVisiveisDeMpme()).to.eventually.be.eql(['true']);
   });
 
   this.Given(/^vejo diversas finalidades$/, function () {

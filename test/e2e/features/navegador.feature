@@ -30,10 +30,10 @@ Funcionalidade: Navegar pelos financiamentos
       Dado que estou na pagina do navegador
       E vejo financiamentos para o setor "Agropecuária"
       E vejo financiamentos que não são para o setor "Agropecuária"
-      E vejo "filtrar setores" desmarcado
+      E vejo o filtro de setores desmarcado
       Quando clico no filtro do setor "Agropecuária"
       Então vejo apenas financiamentos disponíveis para o setor "Agropecuária"
-      E vejo "filtrar setores" marcado
-      Quando clico no checkbox "filtrar setores"
+      E vejo o filtro de setores marcado
+      Quando desmarco o filtro de setores
       Então vejo financiamentos para o setor "Agropecuária"
       E vejo financiamentos que não são para o setor "Agropecuária"
