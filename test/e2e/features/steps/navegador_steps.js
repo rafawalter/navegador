@@ -49,31 +49,31 @@ module.exports = function() {
     return page.clicarEmMpme();
   });
 
-  this.Given(/^vejo financiamentos de diversos setores$/, function () {
-    return expect(page.valoresVisiveisDeSetor()).to.eventually.have.members(['Agroindústria']);
+  this.Given(/^vejo financiamentos para o setor "([^"]*)"$/, function (setor) {
+    return expect(page.financiamentosParaSetor(setor)).to.exist;
   });
 
-  this.Given(/^vejo "([^"]*)" desmarcado$/, function (arg1, callback) {
-    // Write code here that turns the phrase above into concrete actions
-    callback.pending();
+  this.Given(/^vejo financiamentos que não são para o setor "([^"]*)"$/, function (setor) {
+      return page.financiamentosParaSetor(setor).then(function(financiamentosSetor) {
+        return expect(page.quantidadeDeFinanciamentosVisiveis()).not.eventually.be.eql(financiamentosSetor.count);
+      });
   });
 
-  this.Given(/^clico no filtro do setor "([^"]*)"$/, function (arg1, callback) {
-    // Write code here that turns the phrase above into concrete actions
-    callback.pending();
+  this.Given(/^vejo "([^"]*)" desmarcado$/, function (filtro) {
+    return expect(page.valorCheckbox(filtro)).to.eventually.be.false;
   });
 
-  this.Given(/^vejo apenas financiamentos disponíveis para o setor "([^"]*)"$/, function (arg1, callback) {
-    // Write code here that turns the phrase above into concrete actions
-    callback.pending();
+  this.Given(/^clico no filtro do setor "([^"]*)"$/, function (setor) {
+    return page.clicarEmSetor(setor);
+  });
+
+  this.Given(/^vejo apenas financiamentos disponíveis para o setor "([^"]*)"$/, function (setor) {
+    return page.financiamentosParaSetor(setor).then(function (financiamentosSetor){
+      return expect(page.quantidadeDeFinanciamentosVisiveis()).to.eventually.be.eql(financiamentosSetor.count);
+    });
   });
 
   this.Given(/^vejo "([^"]*)" marcado$/, function (arg1, callback) {
-    // Write code here that turns the phrase above into concrete actions
-    callback.pending();
-  });
-
-  this.Given(/^vejo novamente financiamentos de diversos setores$/, function (callback) {
     // Write code here that turns the phrase above into concrete actions
     callback.pending();
   });

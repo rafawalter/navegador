@@ -28,10 +28,12 @@ Funcionalidade: Navegar pelos financiamentos
       @watch
     Cenário: Filtrar setores
       Dado que estou na pagina do navegador
-      E vejo financiamentos de diversos setores
+      E vejo financiamentos para o setor "Agropecuária"
+      E vejo financiamentos que não são para o setor "Agropecuária"
       E vejo "filtrar setores" desmarcado
       Quando clico no filtro do setor "Agropecuária"
       Então vejo apenas financiamentos disponíveis para o setor "Agropecuária"
       E vejo "filtrar setores" marcado
       Quando clico no checkbox "filtrar setores"
-      Então vejo novamente financiamentos de diversos setores
+      Então vejo financiamentos para o setor "Agropecuária"
+      E vejo financiamentos que não são para o setor "Agropecuária"

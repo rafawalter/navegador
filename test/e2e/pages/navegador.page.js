@@ -35,23 +35,13 @@ var NavegadorPage = function() {
     });
   };
 
-  this.valoresVisiveisDeSetor = function() {
-    return element.all(by.repeater('setor in financiamento.setores'))
-      .map(function(setoresDoFinanciamento,index) {
-          return setoresDoFinanciamento.getText();
-      }).then(function(valores) {
-        console.log(valores);
-        return _.flatten(_.uniq(valores));
-    });
-  };
-
   this.clicarEmFinanciamento = function (financiamento){
     var acessarFinanciamento = element.all(by.repeater('financiamento in financiamentosFiltrados')).all(by.linkText(financiamento));
     return acessarFinanciamento.click();
   };
 
   this.clicarEmSetor = function (setor) {
-    var acessarSetor = element(by.id('setores')).all(by.tagName('input')).all(by.id('setor_'+setor));
+    var acessarSetor = element(by.id('setor_'+setor)).all(by.model("filtro.setor"));
     return acessarSetor.click();
   };
 
@@ -64,6 +54,13 @@ var NavegadorPage = function() {
     return linkMpme.click();
   };
 
+  this.financiamentosParaSetor = function(setor) {
+    return element.all(by.repeater('financiamento in financiamentos')).all(by.repeater('setor in financiamento.setores')).all(by.id('financiamentoSetor_'+setor));
+  };
+
+  this.valorCheckbox = function(filtro) {
+    return element(by.cssContainingText('.setores',filtro)).isSelected();
+  };
 
 };
 
