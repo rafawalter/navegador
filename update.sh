@@ -1,1 +1,1 @@
-npm run pull
+npm run update

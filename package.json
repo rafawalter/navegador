@@ -4,6 +4,7 @@
   "main": "index.js",
   "dependencies": {
     "bower": "^1.7.7",
+    "forever": "^0.15.1",
     "jasmine": "^2.4.1",
     "underscore": "^1.8.3"
   },
@@ -14,7 +15,8 @@
     "http-server": "^0.9.0",
     "phantomjs-prebuilt": "^2.1.5",
     "protractor": "^3.1.1",
-    "protractor-cucumber-framework": "^0.3.4"
+    "protractor-cucumber-framework": "^0.3.4",
+    "shelljs": "^0.6.0"
   },
   "scripts": {
     "test": "npm run unit && npm run e2e",
@@ -23,9 +25,9 @@
     "cucumber": "protractor ./test/e2e/protractor-cucumber.config.js",
     "webdriver-update": "webdriver-manager update",
     "selenium": "webdriver-manager start --standalone",
-    "pull": "git pull && npm run prepare",
-    "prepare": "npm install && bower install && npm run webdriver-update && npm start",
-    "start": "node ./node_modules/http-server/bin/http-server"
+    "update": "git pull && npm run prepare",
+    "prepare": "npm install && bower install && npm run webdriver-update",
+    "start": "start-server.js"
   },
   "repository": {
     "type": "git",
