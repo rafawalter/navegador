@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="navegadorApp">
+<html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
@@ -24,10 +24,10 @@
     <script src="setor/setor-resource.js"></script>
   </head>
 
-  <body ng-controller="NavegadorController">
+  <body ng-app="navegadorApp" ng-controller="NavegadorController">
     <div class='container'>
       <ng-view>
-        <h1>Financiamentos</h1>
+        <h1>Financiamentos {{2+2}}</h1>
 
         <div id='todas'>
           <h2>Todas as opções</h2>
