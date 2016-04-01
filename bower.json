@@ -17,13 +17,14 @@
     "client/bower-components/"
   ],
   "dependencies": {
-    "angular": "~1.5.2",
-    "bootstrap": "~3.3.6",
+    "angular": "^1.5.3",
+    "bootstrap": "3.3.5",
     "underscore": "^1.8.3",
-    "angular-route": "^1.5.2",
+    "angular-route": "1.5.3",
     "datatables.net": "^1.10.11",
-    "datatables.net-bs": "^1.10.11",
-    "datatables.net-responsive-bs": "^2.0.2",
-    "datatables-i18n": "^1.0.4"
+    //"datatables.net-bs": "^1.10.11",
+    //"datatables.net-responsive-bs": "^2.0.2",
+    "datatables-i18n": "^1.0.4",
+    "angular-datatables": "^0.5.3"
   }
 }

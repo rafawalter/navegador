@@ -5,23 +5,30 @@
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>{{pageTitle}}</title>
+    <title>Todos os financiamentos</title>
 
     <link rel="stylesheet" href="bower-components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower-components/bootstrap/dist/css/bootstrap-theme.min.css">
 
     <link rel="stylesheet" href="bower-components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="bower-components/datatables.net-responsive-bs/css/responsive.bootstrap.min.css">
+
+    <!-- link rel="stylesheet" href="bower-components/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" -->
 
 
-    <script src="bower-components/angular/angular.min.js"></script>
-    <script src="bower-components/angular-route/angular-route.min.js"></script>
 
     <script src="bower-components/jquery/dist/jquery.min.js"></script>
     <script src="bower-components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="bower-components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!--
     <script src="bower-components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="bower-components/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+-->
+
+    <script src="bower-components/angular/angular.min.js"></script>
+    <script src="bower-components/angular-route/angular-route.min.js"></script>
+    <script src="bower-components/angular-datatables/dist/angular-datatables.min.js"></script>
+
+
 
     <link rel="stylesheet" href="css/main.css">
 
@@ -95,7 +102,7 @@
 			</div>
 -->
 
-        <table class='table table-striped table-hover datatable'>
+        <table datatable='ng' class='table table-striped table-hover datatable'>
           <thead>
             <tr>
               <th>Informações básicas</th>
@@ -140,7 +147,7 @@
               });
             };
 
-            iniciarDataTable(locator);
+//            iniciarDataTable(locator);
           });
         </script>
       </div>

@@ -32,7 +32,6 @@ angular.module("meusUtilitarios")
       });
 
       return arrayFinalidadesComFinanciamentos;
-      console.log(arrayFinalidadesComFinanciamentos);
     }
 
     servico.calcularSetoresComFinanciamentos = function(financiamentos){
