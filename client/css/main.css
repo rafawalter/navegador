@@ -5,11 +5,11 @@ li {
 input[type="radio"]:disabled {
 	cursor: default;
 }
-
+/*
 input[type="radio"]:disabled + label {
 		color: lightgrey;
 }
-
+*/
 table.datatable tbody tr {
     cursor: pointer;
 }

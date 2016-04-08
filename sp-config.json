@@ -1,6 +1,27 @@
 {
    "wcmContentName": "Navegador",
-   "mainHtmlFile": "client/navegador.html"
-//   "mainHtmlFile": "client/index.html"
+   "mainHtmlFile": "client/navegador.html",
+//  "mainHtmlFile": "client/index.html",
 
+    "excludes": [
+      "^bin$",
+      "^lib$",
+      "^src$",
+      "^.git$",
+      "^.tmp$",
+      "^gulp$",
+      "^e2e$",
+      "^coverage$",
+      "^.*\\.log$",
+      "^node_modules$",
+      "^\\.classpath$",
+      "^\\.project$",
+      "^\\..*ignore$",
+      "^sp-config.json$",
+      "^sp-cmdln.log$",
+      "^sp.bat$",
+      "^sp.sh$",
+      "^.*\/bower-components\/.*(?<!\\.min)\\.js$",
+      "^.*\\.less$"
+    ]
 }
